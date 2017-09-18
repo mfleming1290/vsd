@@ -1,0 +1,21 @@
+.citySearch {
+    background-color: #053659;
+    padding: 10px 0;
+}
+input {
+    margin-left: 5px;
+}
+
+.citySearch p {
+    color: #fff;
+    display: inline
+}
+
+.city-listings {
+    margin-top: 30px;
+}
+
+.city-listings img {
+    margin-left: 50px;
+    margin-bottom: 20px;
+}

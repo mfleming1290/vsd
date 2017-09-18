@@ -1,0 +1,104 @@
+/*====================================================
+                        HOME
+======================================================*/
+
+.states {
+        background-color: #EFEFEF;
+}
+
+.content-box {
+        background-color: #fff;
+}
+
+#category {
+    width: 100%;
+    height: 100%;
+}
+
+#category-cover {
+    width: 100%;
+    height: 220px;
+        background-image: url("../../assets/img/statesimg3.png");
+
+}
+
+#category-content-box {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+#category-content-box-inner {
+    display: table-cell;
+    vertical-align: middle;
+     text-align: center; 
+}
+
+#category-heading h2 {
+    
+    color: #000;
+    font-size: 55px;
+    font-weight: 800;
+    margin: 20px;
+    /*background-color: #ABABAB;*/
+    /*opacity: .8;*/
+    }
+
+
+
+/*====================================================
+                        PARALLAX (Generic)
+======================================================*/
+
+.bg-parallax {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /*background-attachment: fixed;*/
+}
+
+.stateSearch {
+    background-color: #053659;
+    padding: 10px 0;
+}
+input {
+    margin-left: 5px;
+}
+
+.stateSearch p {
+    color: #fff;
+    display: inline
+}
+
+legend {
+    text-align: center;
+    margin: 10px auto;
+    font-size: 30px;
+}
+
+.state-listings {
+    margin-top: 30px;
+    /*border: 1px solid black;*/
+}
+
+.state-listings .pick {
+    margin-bottom: 20px;
+}
+
+/*.content {
+    background-color: #EFEFEF;
+}*/
+
+
+fieldset .stateList,fieldset .stateList p, fieldset .stateList a {
+    color: black;
+    display: inline;
+    font-weight: bold;
+}
+
+.cityCount {
+    font-size: 10px;
+}
+/*.stateList:not(:first-child) {
+    margin-left: 150px; 
+}*/

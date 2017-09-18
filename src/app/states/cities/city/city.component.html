@@ -1,0 +1,124 @@
+<section class="wrapper" *ngIf='city'>
+        <!-- Ads -->
+        
+
+            <div class="content-box container" >
+                <div id="category">
+                     <div id="category-cover" class="bg-parallax ">
+
+                    <div id="category-content-box">
+
+                        <div id="category-content-box-inner" class="text-center">
+
+                            <div id="category-heading" >
+                                <h2>{{ city.name }}</h2>
+                            </div>
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+                </div>
+
+                <!--<div class="">
+                    <div class="content-title row" >
+                        <h1 class="text-center">{{ city.name }}</h1>
+                        <div class='content-title-underline'></div>
+                    </div>
+                </div>-->
+                <div class="row banners">
+                    <div class="col-md-8">
+                        <div id='banner' class="brighten pic">
+                            <a href="https://www.facebook.com/DLPBrushCutting/" rel="nofollow"><img src="../../../assets/img/dbImages/dlpBanner.png" alt="banner ad" class='img-
+                            responsive bannerAds borders blogger spice' style="padding:3px ;background-color:#eeecec" /></a><br> 
+                        </div>
+                    </div>
+                
+                <div class="col-md-4">
+                        <div id='banner2' class="brighten pic">
+                            <a href="https://www.tjcmortgage.com/" rel="nofollow"><img src="../../../assets/img/dbImages/TJC.png"   alt="banner ad" class='img-responsive bannerAds borders blogger spice' style="padding:3px ;background-color:#eeecec" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                            <div *ngIf='categories'>
+                                <div class="cat-search">
+                                    <p>Search:</p>
+                                    <input type="text" class="search" [(ngModel)]='filter.name' placeholder='Category'>
+                                    <div class='search-underline-two'></div>
+                                    <div class="list-group-two">
+                                        <div *ngFor='let cat of categories  | search:filter' class="list-buttons">
+                                            
+                                          <button [routerLink]="['/states', 'cities' , city._id, cat._id]" class="btn btn-default"> {{ cat.name }} </button>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                </div>
+                            </div>
+
+                        </div>
+                <div class=" ad-box">
+                    <div class="row">
+                        <!--<div class="col-md-2 left">
+                            <div *ngIf='categories'>
+                                <div class="cat-list">
+                                    <p>Search:</p>
+                                    <input type="text" class="search" [(ngModel)]='filter.name' placeholder='Category'>
+                                    <div class='search-underline'></div>
+                                    <ul class="list-group">
+                                        <li *ngFor='let cat of categories  | search:filter' class="list-group-item"> <a  [routerLink]="['/states', 'cities' , city._id, cat._id]"><i class="fa fa-angle-right"></i> {{ cat.name }}</a></li>
+                                    </ul>
+                                   
+                                   
+                                </div>
+                            </div>
+
+                        </div>-->
+                        <div class="col-md-12 right">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                      
+              
+
+                
+      
+            </div> 
+                    
+
+    </section>
+
+
+
+
+<!--<div id='banner' class="brighten pic">
+                    <a href="https://www.facebook.com/DLPBrushCutting/" rel="nofollow"><img src="../img/veterans/ads/ga/dlpBanner.png" alt="banner ad" class='img-
+                     responsive bannerAds borders blogger spice' style="padding:3px ;background-color:#eeecec" /></a><br> 
+                </div>
+                <div id='banner2' class="brighten pic">
+                    <a href="https://www.tjcmortgage.com/" rel="nofollow"><img src="../img/veterans/ads/ga/TJC.png"  alt="banner ad" class='img-responsive bannerAds 					
+                     borders blogger spice' style="padding:3px ;background-color:#eeecec" /></a>
+                     </div>-->
+                    <!--<div class="row" id='ad-placement-2' *ngFor='let ad of ads'>
+                      <div class='col-md-12 separator ad-item-description'>
+                      <div class='ad-content'>
+                      <div class='ad-item-img'>
+                      <img src="{{ad.img}}" class="img-responsive" height="200px" width="300" alt="ad image">
+                      </div>
+                       <div class='ad-info'>
+                      <h3>{{ad.company }}</h3>
+                      <p>{{ ad.phone}} </p>
+                      <p> {{ ad.description }}</p>
+                      <p> {{ ad.category }}</p>
+                      
+                     <a href="{{ad.link}}">{{ad.link}}</a>
+                      
+                      </div>
+                      </div>
+                      </div>-->

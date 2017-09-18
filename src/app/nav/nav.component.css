@@ -1,0 +1,318 @@
+@import url(http://fonts.googleapis.com/css?family=roboto:400,400italic,600,700,800);
+
+*,
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+label,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section { display: block; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html { -webkit-font-smoothing: antialiased; }
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover { color: #BA0707; }
+
+.mainWrap-nav {
+  position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.dropdown-menu {
+  height: 530px;
+  width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling:touch;
+}
+
+nav {
+  display: block;
+  background: rgba(76,76,76,1);
+background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 1%, rgba(71,71,71,1) 15%, rgba(0,0,0,1) 51%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(17,17,17,1) 96%, rgba(19,19,19,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(0%, rgba(44,44,44,1)), color-stop(0%, rgba(102,102,102,1)), color-stop(1%, rgba(89,89,89,1)), color-stop(15%, rgba(71,71,71,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(76%, rgba(43,43,43,1)), color-stop(91%, rgba(28,28,28,1)), color-stop(96%, rgba(17,17,17,1)), color-stop(100%, rgba(19,19,19,1)));
+background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 1%, rgba(71,71,71,1) 15%, rgba(0,0,0,1) 51%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(17,17,17,1) 96%, rgba(19,19,19,1) 100%);
+background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 1%, rgba(71,71,71,1) 15%, rgba(0,0,0,1) 51%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(17,17,17,1) 96%, rgba(19,19,19,1) 100%);
+background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 1%, rgba(71,71,71,1) 15%, rgba(0,0,0,1) 51%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(17,17,17,1) 96%, rgba(19,19,19,1) 100%);
+background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(44,44,44,1) 0%, rgba(102,102,102,1) 0%, rgba(89,89,89,1) 1%, rgba(71,71,71,1) 15%, rgba(0,0,0,1) 51%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(17,17,17,1) 96%, rgba(19,19,19,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+}
+
+.menu { 
+  display: block; 
+  }
+
+.menu li {
+  display: inline-block;
+  position: relative;
+  z-index: 100;
+}
+
+.menu li:first-child { margin-left: 0; }
+
+nav li a {
+  font-weight: 600;
+  text-decoration: none;
+  padding: 20px 15px;
+  display: block;
+  color: #fff;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.menu li a:hover,
+.menu li:hover>a {
+  color: #fff;
+  background: #C1C1C1;
+}
+
+.menu ul {
+  visibility: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  width: 170px;
+  position: absolute;
+  left: 0px;
+  background: #fff;
+  z-index: 99;
+  transform: translate(0, 20px);
+  transition: all 0.2s ease-out;
+}
+
+.menu ul:after {
+  bottom: 100%;
+  left: 20%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.menu ul li {
+  display: block;
+  float: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li a {
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+  color: #797979;
+  background: #fff;
+}
+
+.menu ul li a:hover,
+.menu ul li:hover>a {
+  background: #C1C1C1;
+  color: #fff;
+}
+
+.menu li:hover>ul {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.menu ul ul {
+  left: 169px;
+  top: 0px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(20px, 20px);
+  transition: all 0.2s ease-out;
+}
+
+.menu ul ul:after {
+  left: -6px;
+  top: 10%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-right-color: #fff;
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+.menu li>ul ul:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.responsive-menu {
+  display: none;
+  width: 100%;
+  padding: 20px 15px;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.responsive-menu:hover {
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+}
+
+a.homer {  }
+ @media (min-width: 768px) and (max-width: 979px) {
+
+.mainWrap { width: 768px; }
+
+.mainWrap-nav {
+  position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.sub-menu {
+  height: 500px;
+  max-height: 200px;
+  width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling:touch;
+}
+
+.menu ul { top: 37px; }
+
+.menu li a { font-size: 12px; }
+
+a.homer { background: #E95546; }
+}
+ @media (max-width: 767px) {
+
+.mainWrap {
+  width: auto;
+  padding: 50px 20px;
+}
+
+.mainWrap-nav {
+  position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.sub-menu {
+  height: 500px;
+  max-height: 200px;
+  width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling:touch;
+}
+
+.menu { display: none; }
+
+.responsive-menu { display: block; }
+
+nav {
+  margin: 0;
+  background: none;
+}
+
+.menu li {
+  display: block;
+  margin: 0;
+}
+
+.menu li a {
+  background: #fff;
+  color: #797979;
+}
+
+.menu li a:hover,
+.menu li:hover>a {
+  background: #FC6D58;
+  color: #fff;
+}
+
+.menu ul {
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: initial;
+}
+
+.menu li:hover>ul {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  transform: initial;
+}
+
+.menu ul ul {
+  left: 0;
+  transform: initial;
+}
+
+.menu li>ul ul:hover { transform: initial; }
+}
+
+.black {
+  color: #000 !important;
+}
+
+.nav-list i {
+  margin-right: 5px;
+}
+.glyphicon {
+  margin-right: 5px;
+}

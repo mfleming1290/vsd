@@ -1,0 +1,220 @@
+
+p {
+    color: #000;
+}
+
+.ad-content .description {
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+    /*width: 400px;*/
+    /*position: absolute;*/
+}
+
+/*====================================================
+                       Ads
+======================================================*/
+
+
+#ads {
+    padding-top: 150px;
+}
+
+.ad-item-img {
+    display: inline-block;
+    margin-left: 40px;    
+}
+
+.ad-content h3 {
+    margin-left: 40px;    
+}
+
+.ad-info {
+    display: inline-block;
+    margin-left: 50px;
+        vertical-align: top;
+}
+
+.div-list {
+    display: inline-block;
+}
+
+#ad-placement-2{
+    text-align: left;
+    
+}
+
+.ad-content {
+    display: table;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 20px;
+    border: 1px solid lightgrey;
+    padding: 20px;
+
+}
+
+
+
+/*====================================================
+                      BANNER ADS
+======================================================*/
+
+#banner {
+    padding-bottom: 30px;
+    display: inline-block;
+}
+
+#banner2{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.bannerAds {-webkit-transition:  -webkit-transform .15s linear;
+-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+-moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+background:#dddddd;
+padding: 5px 5px 5px 5px;
+}
+
+
+.ads {
+-webkit-box-shadow:  0 3px 6px rgba(0,0,0,.5);
+-moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+
+}
+
+/*DARKEN*/
+.brighten img {
+  -webkit-filter: brightness(100%);
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+          display: inline-block;
+}
+ 
+.brighten img:hover {
+  -webkit-filter: brightness(130%);
+}
+
+
+.advertis-right {
+    margin-top: 150px;
+left: 70%;
+/*margin-left: 370px;*/
+position: absolute;
+top: 0;
+width: 500px;
+z-index: 1
+}
+/* Responsive Styles */
+@media (max-width: 1199px) {
+
+
+.advertis-right {
+    margin-left: 470px;
+}
+
+}
+@media (max-width: 991px) {
+
+.advertis-right {
+    margin-left: 360px;
+}
+}
+@media (max-width: 767px) {
+
+.navbar-nav .dropdown-submenu > .dropdown-menu {
+    margin-left:10px;
+    display:block;
+}
+
+.advertis-right {
+    display:none;
+}
+}
+
+
+.advertis-right2 {
+    margin-top: 550px;
+left: 80%;
+/*margin-left: 370px;*/
+position: absolute;
+top: 0;
+width: 500px;
+z-index: 1
+}
+/* Responsive Styles */
+@media (max-width: 1199px) {
+
+
+.advertis-right2 {
+    margin-left: 470px;
+}
+
+}
+@media (max-width: 991px) {
+
+.advertis-right2 {
+    margin-left: 360px;
+}
+}
+@media (max-width: 767px) {
+
+.navbar-nav .dropdown-submenu > .dropdown-menu {
+    margin-left:10px;
+    display:block;
+}
+
+.advertis-right2 {
+    display:none;
+}
+}
+
+
+.ad-title-underline {
+    width: 90%;
+    height: 3px;
+    background-color: lightgray;
+    margin: 0 auto 30px auto;
+}
+
+.ad-title-underline-two {
+    width: 100%;
+    margin-top: 10px;
+
+    height: 3px;
+    background-color: #000;
+    margin: 10 auto 30px auto;
+}
+
+.wrapper {
+    margin-bottom: 20px;
+}
+
+.ad-item-description {
+    display: inline-block;
+    
+}
+
+.ad-content p {
+    margin-left: 5px;
+    font-size: 25px;
+}
+
+.ad-content a {
+    margin-left: 5px;
+    font-size: 25px;
+
+}
+
+.ad-content img {
+    margin-left: 5px;
+    vertical-align: top;
+}
+
+.ad-content .description {
+    margin-top: 10px;
+    font-size: 18px;
+}
