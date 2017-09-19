@@ -1,81 +1,85 @@
-<!--<nav class="navbar navbar-fixed-top matt-top-nav">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div id="flipkart-navbar">
+  <div class="container">
+    <div class="row row1">
+      <h1 style="margin:0px;"><span class="largenav">Veteran's Service Directory</span></h1>
 
-            <div class="container-fluid">
+      <ul class="largenav pull-right">
+        <li class="upper-links">
+          <p><a class='links' routerLink='/' routerLinkActive="active"><i class="fa fa-home"></i>Home</a></p>
+        </li>
+        <li class="upper-links">
+          <p><a class="links" href="#employment"><i class="fa fa-briefcase"></i> Employment Opportunities </a></p>
+        </li>
+        <li class="upper-links">
+          <p><a class="links" routerLink='/services' routerLinkActive="active"><i class="fa fa-cogs"></i>Services</a></p>
+        </li>
+        <li class="upper-links">
+          <p><a class="links" href="#contact"><i class="fa fa-envelope"></i> Contact</a></p>
+        </li>
+        <li class="upper-links" *ngIf='isAuthed()'>
+          <p><a class="links" routerLink='/ads'>Ads</a></p>
+        </li>
+        <li class="upper-links" *ngIf='isAuthed()'>
+          <p><a class="links" (click)='logout()'>Logout</a></p>
+        </li>
 
-                <div class="matt-nav-wrapper">
-
-                    <div class="navbar-header">
-
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#matt-menu">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                       </button>
-                                  <a class="navbar-brand name white" routerLink='/'>Book It</a>
-                                  
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="matt-menu">
-                        <ul class="nav navbar-nav">
-                            <li *ngIf='!isAuthed()'><a routerLink='/home'>Home</a></li>
-                            <li><a routerLink='/authors'>Authors</a></li>
-                            <li><a routerLink='/authors/new'>Create Author</a></li>
-                            <li><a routerLink='/'>Books</a></li>
-                            <li><a routerLink='/books/new'>Create a Book</a></li>
-                            <li><a routerLink='/books/search'>Search for a Book</a></li>
-                            <li><a routerLink='/games'>Games</a></li>
-                            <li><a routerLink='/games/search'>Game Search</a></li>
-                            <li *ngIf='isAuthed()'>
-                                <button class="btn btn-md" (click)='logout()'>Logout</button>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-        </nav>-->
-
-
-       
-
-
-
-<!--<div class="mainWrap-nav">
-  <nav class=""> <a  id="resp-menu" class="responsive-menu" href="#"><i class="fa fa-reorder"></i> Menu</a>
-  <ul class="menu">
-    <li><a class="homer" href="/"><i class="fa fa-home"></i> HOME</a>
-    </li>
-    <li><a  href="#"><i class="fa fa-tags"></i> VETERANS DIRECTORY</a>
-      <ul class="sub-menu">
-      <li><a href="../states/state.php?state=ak">Alaska</a></li>                                
-        <li><a href="../states/state.php?state=az">Arizona</a></li>
-        <li><a href="../states/state.php?state=ca">California</a></li>
-        <li><a href="../states/state.php?state=fl">Florida</a></li>
-        <li><a href="../states/state.php?state=ga">Georgia</a></li>
-        <li><a href="../states/state.php?state=id">Idaho</a></li>
-        <li><a href="../states/state.php?state=mi">Michigan</a></li>
-        <li><a href="../states/state.php?state=ny">New York</a></li>
-        <li><a href="../states/state.php?state=nc">North Carolina</a></li>
-        <li><a href="../states/state.php?state=or">Oregon</a></li>
-        <li><a href="../states/state.php?state=tn">Tennessee</a></li>
-        <li><a href="../states/state.php?state=tx">Texas</a></li>
-        <li><a href="../states/state.php?state=wy">Wyoming</a></li>
-        
-     
+        <li class="upper-links dropdown">
+          <p class="links">States<i class="fa fa-angle-down"></i></p>
+          <ul class="dropdown-menu" *ngIf='states'>
+            <li *ngFor='let state of states  | orderBy:order:ascending' class="profile-li"><a class="profile-links" [routerLink]="['/states', state._id]">{{state.name}}</a></li>
+          </ul>
+        </li>
       </ul>
-    </li>
-    <li><a  href="#"><i class="fa fa-briefcase"></i> EMPLOYMENT</a></li>
-    <li><a  href="#contact"><i class="fa fa-envelope"></i> CONTACT</a></li>
-    <li><a routerLink='/log'>LOGIN</a></li>
-  </ul>
-</nav>
-</div>-->
+    </div>
+    <div class="row row2">
+      <div class="col-sm-2">
+        <h2 style="margin:0px;"><span class="smallnav menu" (click)='isCollapsed = !isCollapsed'>☰ VSD</span></h2>
+        <!--<h1 style="margin:0px;"><span class="largenav">Veteran's Service Directory</span></h1>-->
+      </div>
+      <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+        <div class="row">
+          <form (ngSubmit)='onSubmit(searchForm.value)' #searchForm='ngForm'>
+            <input type="text" class="flipkart-navbar-input col-xs-11" type="text" name='name' [ngModel]='search.name' placeholder="Search For An Ad">
+            <!--<input class="flipkart-navbar-input col-xs-11"  type="text" name='name' [ngModel]='search.name' placeholder="Search For An Ad">-->
+            <button class="flipkart-navbar-button col-xs-1">
+                        <svg width="15px" height="15px">
+                            <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 " fill="#fff"></path>
+                        </svg>
+                      </button>
+          </form>
+        </div>
+      </div>
+      <div class="cart largenav col-sm-2">
+        <a class="cart-button" routerLink='/states'>
+                    <i class="fa fa-tags"></i>Directory
+                </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="mySidenav" class="sidenav" [collapse]='isCollapsed'>
+  <div routerLink='/' routerLinkActive="active" class="container" style="background-color: #2874f0; padding-top: 10px;">
+    <span class="sidenav-heading"><i class="fa fa-home"></i>Home</span>
+    <a href="javascript:void(0)" class="closebtn" (click)='isCollapsed = !isCollapsed'>×</a>
+  </div>
+  <div id="dropDown" class="navbar-collapse collapse navbar " [collapse]='isCollapsed'>
+    <ul class="nav navbar-nav nav-list">
+      <li><a routerLink='/states'><i class="fa fa-tags"></i>Veteran's Directory</a></li>
+      <li><a href="#employment"><i class="fa fa-briefcase"></i> Employment Opportunities </a></li>
+      <li><a routerLink='/services' routerLinkActive="active"><i class="fa fa-cogs"></i>Services</a></li>
+      <li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
+      <li role="menuitem" *ngIf='isAuthed()'><a class="dropdown-item" routerLink='/ads'>Ads</a></li>
+      <li *ngIf='isAuthed()'>
+        <button class="btn btn-lg btn-primary searchButton" (click)='logout()'>Logout</button>
+      </li>
+    </ul>
+  </div>
+</div>
 
 
 
-<nav class="navbar navbar-inverse">
+<!--<nav class="navbar navbar-inverse">
   <div class="container-fluid " >
     <div class="navbar-header "> 
         <button type="button" id="resp-menu" class="navbar-toggle collapsed responsive-menu" (click)='isCollapsed = !isCollapsed'>
@@ -84,68 +88,40 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <!--<a class="navbar-brand name white" routerLink='/'>Book It</a>-->
                                   
     </div>
-      <!--<a class="navbar-brand name white" routerLink='/'>Book It</a>-->
-      <div id="navbar" class="navbar-collapse collapse navbar" [collapse]='isCollapsed'>
+      <div id="navbar" class="navbar-collapse collapse navbar " [collapse]='isCollapsed'>
         <ul class="nav navbar-nav nav-list">
           <li><a routerLink='/' routerLinkActive="active"><i class="fa fa-home"></i>Home</a></li>
-          <li dropdown triggers="mouseover">
-            <a routerLinkActive="active" dropdownToggle class="dropdown-toggle">
-              <i class="fa fa-tags"></i>VETERANS DIRECTORY <span class="caret"></span>
-            </a>
-            <ul *dropdownMenu class="dropdown-menu" role="menu" >
-              
-              <li role="menuitem"><a class="dropdown-item black" routerLink='/states'><span class="glyphicon glyphicon-list-alt"></span>Directory</a>
-              </li>
-              <li class="divider dropdown-divider"></li>
-              <li *ngFor='let state of states'  role="menuitem"><span ><a class="dropdown-item black"  [routerLink]="['/states', state._id]"><i class="fa fa-angle-right"></i>{{state.name}}</a></span></li>
-              <!--<li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-              </li>-->
-            </ul>
-
-          </li>
+          
+          <li><a  routerLink='/states'><i class="fa fa-tags"></i>Veteran's Directory</a></li>
           <li><a  href="#employment"><i class="fa fa-briefcase"></i> Employment Opportunities </a></li>
           <li><a routerLink='/services' routerLinkActive="active"><i class="fa fa-cogs"></i>Services</a></li>
           <li><a  href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
           <li role="menuitem" *ngIf='isAuthed()'><a class="dropdown-item" routerLink='/ads'>Ads</a></li>
-
-          
-        </ul>
-        
-
-        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf='isAuthed()'>
+                <button class="btn btn-lg btn-primary searchButton" (click)='logout()'>Logout</button>
+            </li>
+                  
           <li>
-          <form (ngSubmit)='onSubmit(searchForm.value)' #searchForm='ngForm' class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" name='name' [ngModel]='search.name' placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+            <div class="container">
+        <div class="row">
+              <div class="span12">
+                  <form (ngSubmit)='onSubmit(searchForm.value)' #searchForm='ngForm' id="custom-search-form" class="form-search form-horizontal pull-right">
+                      <div class="input-append span12">
+                          <input type="text" class="search-query" type="text" name='name' [ngModel]='search.name' placeholder="Search">
+                          <button type="submit" class="btn"><i class="glyphicon glyphicon-search"></i></button>
+                      </div>
+                  </form>
+              </div>
+        </div>
+      </div>
           </li>
-          <li *ngIf='isAuthed()'>
-                                <button class="btn btn-lg btn-primary" (click)='logout()'>Logout</button>
-                            </li>
-
         </ul>
+       
+        
+          
       </div>
   </div>
 
-</nav>
-
-
-<!--<div class="btn-group" dropdown>
-  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-    Button dropdown <span class="caret"></span>
-  </button>
-  <ul *dropdownMenu class="dropdown-menu" role="menu">
-    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-    <li class="divider dropdown-divider"></li>
-    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-    </li>
-  </ul>
-</div>-->
-
-
+</nav>-->

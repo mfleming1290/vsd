@@ -170,6 +170,12 @@ z-index: 1
 .advertis-right2 {
     display:none;
 }
+
+table {
+    display: block;
+    width: 100%;
+   }
+    
 }
 
 
@@ -218,3 +224,4 @@ z-index: 1
     margin-top: 10px;
     font-size: 18px;
 }
+

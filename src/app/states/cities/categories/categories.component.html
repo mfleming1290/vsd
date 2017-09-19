@@ -3,60 +3,70 @@
   <section>
 
     <div class="content-box">
-      <div class='container '>
+      <div>
         <div class="content-title">
           <h1>{{ currentCategory }}</h1>
         </div>
         <div class='content-title-underline'></div>
-       <div class="text-center">
-            <!-- items being paged -->
-            <!--<div *ngFor="let item of pagedItems">{{item.title}}</div>-->
-            <div class="col-md-12">
-              <table class="table table-striped white table-responsive">
+        <div class="text-center">
+          <!-- items being paged -->
+          <!--<div *ngFor="let item of pagedItems">{{item.title}}</div>-->
+          <div>
+            <table class="table table-striped white table-responsive">
               <thead>
-                <tr>   
-                <th class="text-center">Ad</th>
-                <th class="text-center">Company</th>
-                <th class="text-center">State</th>
-                <th class="text-center">Phone</th> 
-                <th class="text-center">Category</th> 
-                <th class="text-center">Link</th> 
-     
+                <tr>
+                  <th class="text-center">Ad</th>
+                  <th class="text-center">Company</th>
+                  <th class="text-center">State</th>
+                  <th class="text-center">Phone</th>
+                  <th class="text-center">Category</th>
+                  <th class="text-center">Link</th>
+
               </thead>
               <tbody>
                 <tr [routerLink]="['/ad', ad._id]" *ngFor='let ad of pagedItems'>
                   <td><img src="{{ad.img}}" class="img-responsive" height="150" width="200" alt="ad image"></td>
-                  <td><p>{{ad.company}}</p></td>
-                  <td><p>{{ad.state}}</p></td>
-                  <td> <p><i class="fa fa-phone"></i> {{ ad.phone}} </p></td>
-                  <td> <p><i class="fa fa-tags"></i> {{ ad.category }}</p></td>
-                  <td><p><i class="fa fa-desktop"></i><a href="{{ad.link}}">{{ad.link}}</a></p></td>
-            
+                  <td>
+                    <p>{{ad.company}}</p>
+                  </td>
+                  <td>
+                    <p>{{ad.state}}</p>
+                  </td>
+                  <td>
+                    <p><i class="fa fa-phone"></i> {{ ad.phone}} </p>
+                  </td>
+                  <td>
+                    <p><i class="fa fa-tags"></i> {{ ad.category }}</p>
+                  </td>
+                  <td>
+                    <p><i class="fa fa-desktop"></i><a href="{{ad.link}}">{{ad.link}}</a></p>
+                  </td>
+
                 </tr>
               </tbody>
             </table>
-            </div>
+          </div>
 
-            <div class="col-md-12">
-              <!-- pager -->
+          <div>
+            <!-- pager -->
             <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                <li [ngClass]="{disabled:pager.currentPage === 1}">
-                    <a (click)="setPage(1)">First</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === 1}">
-                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-                </li>
-                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="setPage(page)">{{page}}</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)">Last</a>
-                </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(1)">First</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)">Next</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.totalPages)">Last</a>
+              </li>
             </ul>
-            </div>
+          </div>
         </div>
       </div>
     </div>

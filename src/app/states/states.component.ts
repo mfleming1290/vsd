@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { StateService } from "../services/state.service";
 import { Subscription } from "rxjs/Subscription";
 import { SearchPipe } from "../search.pipe";
+import { OrderByPipe } from "../order-by.pipe";
 import { City } from "../classes/city";
 
 
@@ -10,12 +11,15 @@ import { City } from "../classes/city";
 @Component({
   selector: 'app-states',
   templateUrl: './states.component.html',
-  styleUrls: ['./states.component.css']
+  styleUrls: ['./states.component.css'],
 })
 export class StatesComponent implements OnInit {
   states;
   subscription: Subscription;
   categories;
+
+  order = "name";
+  ascending = true;
 
   filter: City = new City();
 

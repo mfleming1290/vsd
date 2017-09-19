@@ -94,7 +94,7 @@ section {
 .ad-content {
     display: table;
     margin: 0 auto;
-    width: 90%;
+    /*width: 90%;*/
 }
 
 .list-buttons {
@@ -306,3 +306,4 @@ z-index: 1
 .cat-search p {
     display: inline-block
 }
+

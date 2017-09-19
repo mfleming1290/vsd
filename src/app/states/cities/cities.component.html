@@ -1,13 +1,11 @@
-<div class=" city-listings">
-            <!--<img src="../../assets/img/cityPick.png" class="img-responsive" alt="">-->
+<div class=" city-listings" *ngIf='cities'>
+  <!--<img src="../../assets/img/cityPick.png" class="img-responsive" alt="">-->
 
-        <div class="citySearch">
-            <input type="text" class="search" [(ngModel)]='filter.name' placeholder='City'>
-            <p>Refine by city</p>
-        </div>  
-        <div class="col-md-4" *ngFor='let city of cities  | search:filter'>
-            <a [routerLink]="['/states', 'cities', city._id]"> {{city.name}}</a>
-        </div> 
+  <div class="citySearch">
+    <input type="text" class="search" [(ngModel)]='filter.name' placeholder='City'>
+    <p>Refine by city</p>
+  </div>
+  <div class="col-md-4" *ngFor='let city of cities  | search:filter  | orderBy:order:ascending'>
+    <a [routerLink]="['/states', 'cities', city._id]"> {{city.name}}</a>
+  </div>
 </div>
-
-

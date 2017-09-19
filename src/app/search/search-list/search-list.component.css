@@ -12,11 +12,7 @@ a {
     font-size: 18px;
 }
 
-table {
-    display: block;
-    width: 90%;
-    margin: 0 auto 0 auto;
-}
+
 
 
 #bl {
@@ -108,9 +104,6 @@ table {
 
 .pager-content   {
   margin: 0 auto;
-  /*display: inline-block;*/
-  /*margin-left: auto;
-  margin-right: auto;*/
   width:40%;
 }
 
@@ -118,4 +111,11 @@ table {
     margin-left: 5px;
     font-size: 25px;
 
+}
+
+@media (max-width: 767px) { 
+    table {
+    display: block;
+    width: 100%;
+   }
 }

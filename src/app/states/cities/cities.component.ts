@@ -6,6 +6,8 @@ import 'rxjs/add/operator/switchMap';
 import { Subscription } from "rxjs/Subscription";
 import { SearchPipe } from "../../search.pipe";
 import { Category } from "../../classes/category";
+import { OrderByPipe } from "../../order-by.pipe";
+
 
 
 
@@ -19,7 +21,8 @@ export class CitiesComponent implements OnInit {
 
   subscription: Subscription;
   cities ;
-
+  order = "name";
+  ascending = true;
   filter: City = new City();
 
 

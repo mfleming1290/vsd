@@ -1,53 +1,47 @@
 <section class="states">
-  <div class="content-box container" >
-                
+  <div class="content-box container">
 
-<fieldset>
-  <legend></legend>
-  <div class="container content">
-    <div id="category">
-                     <div id="category-cover" class="bg-parallax ">
 
-                    <div id="category-content-box">
+    <fieldset>
+      <legend></legend>
+      <div class="container content">
+        <div id="category">
+          <div id="category-cover" class="bg-parallax ">
 
-                        <div id="category-content-box-inner" class="text-center">
+            <div id="category-content-box">
 
-                            <div id="category-heading" >
-                              <!--<h2>States</h2>-->
-                            </div>
-                            
+              <div id="category-content-box-inner" class="text-center">
 
-                        </div>
-
-                    </div>
-
+                <div id="category-heading">
+                  <!--<h2>States</h2>-->
                 </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div *ngIf='states' class="state-listings">
+              <div class="stateSearch">
+                <input type="text" class="search" [(ngModel)]='filter.name' placeholder='State'>
+                <p>Refine by state</p>
+              </div>
+              <div class="states">
+                <div class="stateList col-md-4" *ngFor='let state of states | search:filter | orderBy:order:ascending'>
+                  <p><a [routerLink]="['/states', state._id]"> {{state.name}}</a></p>
                 </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div *ngIf='states' class="state-listings">
-          <div class="stateSearch">
-          <input type="text" class="search" [(ngModel)]='filter.name' placeholder='State'>
-          <p>Refine by state</p>
+              </div>
+            </div>
           </div>
-          <div class="states">
-            <div class="stateList col-md-4" *ngFor='let state of states | search:filter'>
-            <p><a [routerLink]="['/states', state._id]"> {{state.name}}</a></p>
-          </div>
+          <div class="col-md-6">
+            <router-outlet></router-outlet>
           </div>
         </div>
       </div>
-       <div class="col-md-6">
-          <router-outlet></router-outlet>
-        </div>
-    </div>
+    </fieldset>
   </div>
-</fieldset>
-</div>
 </section>
-
-
-
-
-
-

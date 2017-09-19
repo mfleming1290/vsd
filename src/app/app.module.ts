@@ -7,6 +7,7 @@ import { CollapseModule } from "ngx-bootstrap";
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { PagerService } from "./services/pager.service";
 import { SearchPipe } from "./search.pipe";
+import { OrderByPipe } from './order-by.pipe';
 
 
 
@@ -52,6 +53,7 @@ import { SearchListComponent } from './search/search-list/search-list.component'
     CitiesComponent,
     CategoryAdComponent,
     SearchListComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

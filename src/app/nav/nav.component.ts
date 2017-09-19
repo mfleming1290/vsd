@@ -3,8 +3,9 @@ import { Router } from "@angular/router";
 import { AdService } from "../services/ad.service";
 import { StateService } from "../services/state.service";
 import { Search } from "../classes/search";
-
 import { AuthService } from "../services/auth.service";
+import { OrderByPipe } from "../order-by.pipe";
+
 
 @Component({
   selector: 'app-nav',
@@ -15,6 +16,8 @@ export class NavComponent implements OnInit {
   isCollapsed = true;
   states;
   search: Search = new Search();
+  order = "name";
+  ascending = true;
 
   constructor(private stateService: StateService, private authService: AuthService, private router: Router, private adService: AdService) { }
 
