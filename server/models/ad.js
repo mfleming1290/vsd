@@ -65,4 +65,4 @@ const adSchema = new Schema({
 
 module.exports = mongoose.model('Ad', adSchema)
 
-// adSchema.index({ company: 'text' })
+adSchema.index({ company: 'text' })
