@@ -2,8 +2,8 @@
     background-color: #053659;
     padding: 10px 0;
 }
-input {
-    margin-left: 5px;
+.input-group span {
+    vertical-align: top;
 }
 
 .citySearch p {
@@ -19,3 +19,24 @@ input {
     margin-left: 50px;
     margin-bottom: 20px;
 }
+
+.list-group li:nth-child(odd) {
+/*background-color: #F9F9F9;*/
+background-color: #F9F9F9;
+
+
+}
+
+.list-group {
+    height: 500px;
+    overflow: scroll;
+    margin-top: 10px;    
+    font-weight: bold;
+
+}
+
+.list-group a {
+            color: black;
+
+}
+

@@ -1,11 +1,32 @@
 <div class=" city-listings" *ngIf='cities'>
-  <!--<img src="../../assets/img/cityPick.png" class="img-responsive" alt="">-->
 
-  <div class="citySearch">
-    <input type="text" class="search" [(ngModel)]='filter.name' placeholder='City'>
-    <p>Refine by city</p>
-  </div>
-  <div class="col-md-4" *ngFor='let city of cities  | search:filter  | orderBy:order:ascending'>
-    <a [routerLink]="['/states', 'cities', city._id]"> {{city.name}}</a>
-  </div>
+  <div class="container">
+            <br />
+          <div class="row">
+
+        <div class="dual-list list-left col-md-5">
+            <div class="well text-right">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="input-group input-group-lg">
+                            <span id="sizing-addon1" class="input-group-addon glyphicon glyphicon-search"></span>
+                            <input type="text" class="search" class="form-control" [(ngModel)]='filter.name' placeholder='Search Cities' aria-describedby="sizing-addon1">
+                        </div>
+                    </div>
+                 
+                </div>
+                <ul class="list-group row">
+                    <li class="list-group-item" *ngFor='let city of cities  | search:filter  | orderBy:order:ascending' [routerLink]="['/states', 'cities', city._id]"><a> {{city.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        
+
+        
+        
+
+	</div>
+</div>
 </div>

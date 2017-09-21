@@ -23,9 +23,23 @@ export class AdNewComponent implements OnInit {
 
   errorMessages: string[] = [];
 
+  public hasBaseDropZoneOver:boolean = false;
+  public hasAnotherDropZoneOver:boolean = false;
 
 
   constructor(private stateService: StateService, private adService: AdService, private router: Router) { }
+
+
+  public fileOverBase(e:any):void {
+    this.hasBaseDropZoneOver = e;
+  }
+
+  public fileOverAnother(e:any):void {
+    this.hasAnotherDropZoneOver = e;
+  }
+
+
+
 
   uploadImage(file) {
     file.upload();

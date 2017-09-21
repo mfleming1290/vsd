@@ -4,46 +4,29 @@
 
 .states {
         background-color: #EFEFEF;
+        padding-bottom: 10px;
 }
 
-.content-box {
+.content {
         background-color: #fff;
+        padding-top:10px;
 }
 
-#category {
-    width: 100%;
-    height: 100%;
-}
+        .dual-list .list-group {
+            margin-top: 8px;
+        }
 
-#category-cover {
-    width: 100%;
-    height: 220px;
-        background-image: url("../../assets/img/statesimg3.png");
+        .list-left li, .list-right li {
+            cursor: pointer;
+        }
 
-}
+        .list-arrows {
+            padding-top: 100px;
+        }
 
-#category-content-box {
-    width: 100%;
-    height: 100%;
-    display: table;
-}
-
-#category-content-box-inner {
-    display: table-cell;
-    vertical-align: middle;
-     text-align: center; 
-}
-
-#category-heading h2 {
-    
-    color: #000;
-    font-size: 55px;
-    font-weight: 800;
-    margin: 20px;
-    /*background-color: #ABABAB;*/
-    /*opacity: .8;*/
-    }
-
+            .list-arrows button {
+                margin-bottom: 20px;
+            }
 
 
 /*====================================================
@@ -61,9 +44,7 @@
     background-color: #053659;
     padding: 10px 0;
 }
-input {
-    margin-left: 5px;
-}
+
 
 .stateSearch p {
     color: #fff;
@@ -85,12 +66,10 @@ legend {
     margin-bottom: 20px;
 }
 
-/*.content {
-    background-color: #EFEFEF;
-}*/
 
 
-fieldset .stateList,fieldset .stateList p, fieldset .stateList a {
+
+ .stateList, .stateList p,  .stateList a {
     color: black;
     display: inline;
     font-weight: bold;
@@ -99,6 +78,61 @@ fieldset .stateList,fieldset .stateList p, fieldset .stateList a {
 .cityCount {
     font-size: 10px;
 }
-/*.stateList:not(:first-child) {
-    margin-left: 150px; 
-}*/
+
+
+
+
+
+
+.list-group {
+    height: 500px;
+    overflow: scroll;
+
+font-weight: bold;
+}
+
+.list-group a {
+            color: black;
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 1200px)  { 
+    .list-group li:nth-child(3n+2) {
+    background-color: #F9F9F9;
+
+}
+}
+
+@media (min-width: 989px) and (max-width: 1200px) { 
+    .list-group li:nth-child(odd) {
+/*background-color: #F9F9F9;*/
+background-color: #F9F9F9;
+
+
+}
+    
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+    
+    .list-group li:nth-child(odd) {
+/*background-color: #F9F9F9;*/
+background-color: #F9F9F9;
+
+
+}
+
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    .list-group li:nth-child(odd) {
+/*background-color: #F9F9F9;*/
+background-color: #F9F9F9;
+
+
+}
+
+ }

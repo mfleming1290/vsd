@@ -33,6 +33,8 @@ import { CitiesComponent } from './states/cities/cities.component';
 import { CityService } from "./services/city.service";
 import { CategoryAdComponent } from './states/cities/categories/category-ad/category-ad.component';
 import { SearchListComponent } from './search/search-list/search-list.component';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { SearchListComponent } from './search/search-list/search-list.component'
     AdNewComponent,
     AdListComponent,
     FileSelectDirective,
+    FileDropDirective,
     VsdServicesComponent,
     CategoriesComponent,
     SearchPipe,
@@ -63,9 +66,10 @@ import { SearchListComponent } from './search/search-list/search-list.component'
     CookieModule.forRoot(),
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
+    SlimLoadingBarModule.forRoot(),
     
   ],
   providers: [CityService, StateService, PagerService, AdService, AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

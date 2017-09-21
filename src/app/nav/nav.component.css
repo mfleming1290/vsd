@@ -591,3 +591,15 @@ background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, 
     color: #fff;
 }
 
+img {
+  display: inline-block;
+  position: absolute;
+}
+
+h1 {
+  display: inline-block;
+}
+
+ul {
+  display: inline-block;
+}

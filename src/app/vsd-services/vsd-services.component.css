@@ -35,40 +35,6 @@ h3 {
 }
 
 
-/*====================================================
-                        HOME
-======================================================*/
-
-#home {
-    height: 70%;
-}
-
-#home-cover {
-    height: 100%;
-        background-image: url("../../assets/img/veterans/services.jpg");
-
-}
-
-#home-content-box {
-    width: 100%;
-    height: 100%;
-    display: table;
-}
-
-#home-content-box-inner {
-    display: table-cell;
-    vertical-align: middle;
-    /* text-align: center; */
-}
-
-#home-heading h3 {
-    
-    color: #fff;
-    font-size: 55px;
-    font-weight: 700;
-    margin: 20px 0 20px 0;
-    
-}
 
 
 
@@ -147,28 +113,6 @@ h3 {
                        ANIMATE
 ======================================================*/
 
-#home-cover,
-#home-heading,
-#home-btn {
-    -webkit-animation-duration: .5s;
-            animation-duration: .5s;
-}
-
-#home-cover {
-    -webkit-animation-delay: .1s;
-            animation-delay: .1s;
-}
-
-#home-heading {
-    -webkit-animation-delay: .5s;
-            animation-delay: .5s;
-}
-
-#home-btn {
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-}
-
 
 /*====================================================
                        CONTENT (Generic)
@@ -187,6 +131,10 @@ h3 {
 
 .content-title-white h3 {
     color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 30px 0;
 }
 
 .content-title-underline {
@@ -201,6 +149,12 @@ h3 {
                        SERVICES
 ======================================================*/
 
+#services {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("../../assets/img/veterans/services.jpg");
+
+}
+
+
 .service-item {
     padding: 20px 0 20px 0;
     margin-bottom: 20px;
@@ -208,10 +162,11 @@ h3 {
 }
 
 .service-item-icon i {
-    color: #4b5320;
+    color: #fff;
     float: left;
     padding: 15px;
-    margin-right: 25px;
+    /*margin-right: 15px;*/
+    margin-bottom: 20px;
     width: 85px;
     height: 85px;
     text-align: center;
@@ -226,6 +181,7 @@ h3 {
     font-size: 20px;
     font-weight: 400;
     margin: 0 0 10px 0;
+    color: #fff;
 }
 
 .service-item-desc p {
@@ -238,18 +194,19 @@ h3 {
 
 
 
+
+
 /*====================================================
                        Resources
 ======================================================*/
 
 #resources {
-    margin-top: 20px;
     /*background: rgba(248,80,50,1);*/
     background-color: #EFEFEF;
 }
 
 .content-box p {
-    color: black;
+    color: #fff;
 }
 
 #resources-desc p {
@@ -276,10 +233,7 @@ h3 {
 }
 
 
-resources-image {
 
-
-}
 /*====================================================
                        SOCIAL
 ======================================================*/
@@ -421,8 +375,67 @@ ul.pricing-spec li p {
     color: #000;
 }
 
+#packages {
+    background-color: #EFEFEF;
+}
 
 
 
 
+img {
+    margin-bottom: 50px;
+}
 
+.serviceBanner {
+    background-image: url("../../assets/img/serviceBanner2.png");
+    height: 144px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2em;
+    
+}
+
+.bannerText {
+    color: #fff;
+    width: 14em;
+    font-size: 2em;
+    margin-left: 2.8em;
+    padding-top: .5em;
+}
+
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+    .bannerText {
+    color: #fff;
+    width: 14em;
+    font-size: 2em;
+    margin-left: .5em;
+}
+
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    .bannerText {
+    color: #fff;
+    width: 14em;
+    font-size: 2em;
+    margin-left: .5em;
+}
+
+ }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .bannerText {
+    color: #fff;
+    width: 14em;
+    font-size: 1.3em;
+    margin-left: 0.5;
+    padding-top: 1.5em;
+    
+} 
+
+ }
