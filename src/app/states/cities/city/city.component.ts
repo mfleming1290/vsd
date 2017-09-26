@@ -7,6 +7,18 @@ import { Subscription } from "rxjs/Subscription";
 import { SearchPipe } from "../../../search.pipe";
 import { Category } from "../../../classes/category";
 import { CityService } from "../../../services/city.service";
+import { CategoryService } from "../../../services/category.service";
+import { AccordionModule } from 'ngx-bootstrap';
+import { StateService } from "../../../services/state.service";
+import { OrderByPipe } from "../../../order-by.pipe";
+import { City } from "../../../classes/city";
+import { State } from "../../../classes/state";
+
+
+
+    
+ 
+  
 
 
 @Component({
@@ -21,7 +33,15 @@ export class CityComponent implements OnInit {
   subscription: Subscription;
   subscriptionCategories: Subscription;
   categories ;
-  cities
+  order = "name";
+  ascending = true;
+  filterState: State = new State();
+  filterCity: City = new City();
+  public oneAtATime: boolean = true;
+  states;
+  public customClass: string = 'customClass';
+  public secondCustomClass: string = 'secondCustomClass';
+  public isCollapsed:boolean = true;
 
   filter: Category = new Category();
 
@@ -29,20 +49,26 @@ export class CityComponent implements OnInit {
 
   @Output() updatedBook = new EventEmitter<Ad>();
 
-  constructor(private cityService: CityService, private adService: AdService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private stateService: StateService, private categoryService: CategoryService, private cityService: CityService, private adService: AdService, private route: ActivatedRoute, private router: Router) { }
+
+  public collapsed(event:any):void {
+    console.log(event);
+  }
+ 
+  public expanded(event:any):void {
+    console.log(event);
+  }
+  public status: any = {
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
 
   
   length(variable) {
     return variable <= 1;
   }
 
-  getCities() {
-    this.cityService.getAllCities()
-    .then(cities => {
-      console.log('got cities for cat', cities)
-      this.cities = cities
-    })
-  }
+  
 
   getCity() {
     this.subscription = this.route.paramMap
@@ -50,7 +76,6 @@ export class CityComponent implements OnInit {
        this.cityService.getCity(param.get('id'))
       )
       .subscribe(city => {
-        console.log('got city',city)
         this.city = city
 
       });
@@ -59,23 +84,28 @@ export class CityComponent implements OnInit {
   getcategories() {
     this.subscriptionCategories = this.route.paramMap
       .switchMap(param => 
-       this.adService.getCategoryAds(param.get('id'))
+       this.categoryService.getCategoryAds(param.get('id'))
       )
       .subscribe(categories => {
-        console.log('get cats!!',categories)
         this.categories = categories
         // this.categories.push(categories)
 
       });
   }
 
-  
+  getStates() {
+    this.stateService.getStates()
+    .then(states => {
+      this.states = states
+    })
+    .catch(() => {})
+  }
     
 
   ngOnInit() {
     this.getCity()
     this.getcategories()
-    this.getCities()
+    this.getStates()
 
   }
 

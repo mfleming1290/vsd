@@ -6,7 +6,18 @@ const State = require('mongoose').model('State')
 const Category = require('mongoose').model('Category')
 const City = require('mongoose').model('City')
 const Ad = require('mongoose').model('Ad')
-
+var NodeGeocoder = require('node-geocoder');
+ 
+var options = {
+  provider: 'google',
+ 
+  // Optional depending on the providers
+  httpAdapter: 'https', // Default
+  apiKey: 'AIzaSyDUA183McO9vbeCWkjIeEM3xGqjmsWDtBE', // for Mapquest, OpenCage, Google Premier
+  formatter: null         // 'gpx', 'string', ...
+};
+ 
+var geocoder = NodeGeocoder(options);
 
 
 
@@ -40,13 +51,20 @@ db.open()
                                 .then((category) => {
                                     return City.findOneAndUpdate({name: ad.city}, {stateId: updatedState._id} , { upsert: true, new: true})
                                     .then((city) =>{
-                                        ad.adCategory = category._id
-                                        ad.stateId = updatedState._id
-                                        ad.cityId = city._id
-                                        ad.save()
-                                        .then((ad) => {
-                                        return ad
-                                        })
+                                      geocoder.geocode(ad.zipcode)
+                                            .then(function(res) {
+                                            console.log('longitude',res[0].longitude, 'latitude',res[0].latitude);
+                                            ad.geometry = {type: "Point", coordinates: [res[0].longitude, res[0].latitude]}
+                                            ad.mapCoordinates = [res[0].latitude, res[0].longitude]
+                                            ad.adCategory = category._id
+                                            ad.stateId = updatedState._id
+                                            ad.cityId = city._id
+                                            ad.save()
+                                            .then((ad) => {
+                                                return ad
+                                            })
+                                            })
+                                        
                                     })
                                 })
 
@@ -83,6 +101,8 @@ function createAd() {
     category: faker.commerce.department(),
     phone: faker.phone.phoneNumber(),
     description: faker.lorem.sentence(),
+    zipcode: faker.address.zipCode(),
+    address: faker.address.streetAddress()
   };
 }
 

@@ -1,0 +1,26 @@
+<section id="bl" *ngIf='collection'>
+  <div class="vertical-container">
+    <div class="text-center">
+      <h1>States</h1>
+      <!-- items being paged -->
+      <!--<div *ngFor="let item of pagedItems">{{item.title}}</div>-->
+      <table class="table table-striped white table-responsive">
+        <thead>
+          <tr>
+            <th class="text-center">
+              name
+            </th>
+            <th class="text-center">Actions</th>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+            <td>{{item.name}}</td>
+            <td (click)='tdClick($event)'> <button class='btn btn-danger btn-sm' (click)='removeState(item)'>Delete Ad</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</section>
+

@@ -1,44 +1,96 @@
-<section class="states">
 
-       <div class="container content">   
-           <img src="../../assets/img/directory.png" width="100%" class="img-responsive" alt="States Banner">
+<!--
 
-        <div class="row ">
-          <div class="col-md-6">
-            <div *ngIf='states' class="state-listings">
-              <div class="container">
-            <br />
-          <div class="row">
+<section id="states" class="states">
+   
 
-        <div class="dual-list list-left col-md-5">
-            <div class="well text-right">
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="input-group input-group-lg">
-                            <span id="sizing-addon1" class="input-group-addon glyphicon glyphicon-search"></span>
-                            <input type="text" class="search" class="form-control" [(ngModel)]='filter.name' placeholder='Search States' aria-describedby="sizing-addon1">
-                        </div>
-                    </div>
-                 
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item col-lg-4 col-md-6 col-sm-12" *ngFor='let state of states | search:filter | orderBy:order:ascending' [routerLink]="['/states', state._id]"><a> {{state.name}}</a></li>
-                </ul>
-            </div>
-        </div>
+  <div class="container content">
+    <img src="../../assets/img/directory.png" width="100%" class="img-responsive" alt="States Banner">
 
+    <div class="row ">
+      <div class="col-md-6  col-md-push-6">
+          <router-outlet></router-outlet>
         
-        
-
-	</div>
-</div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <router-outlet></router-outlet>
-          </div>
       </div>
-     </div>
       
+      <div id="cities" class="col-md-6  col-md-pull-6">
+        <div *ngIf='states' class="state-listings">
+          <div class="">
+            <br />
+            <div class="">
+
+              <div class="dual-list list-left col-md-12">
+                <div class="well text-right">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="input-group input-group-lg">
+                        <span id="sizing-addon1" class="input-group-addon glyphicon glyphicon-search"></span>
+                        <input type="text" class="search" class="form-control" [(ngModel)]='filter.name' placeholder='Search States' aria-describedby="sizing-addon1">
+                      </div>
+                    </div>
+
+                  </div>
+                  <ul class="list-group">
+                    <li  class="list-group-item col-lg-4 col-md-6 col-sm-12" *ngFor='let state of states | search:filter | orderBy:order:ascending'
+                      [routerLink]="['/states', state._id]"><a>{{state.name}} </a></li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>-->
+
+<section id="states" class="states">
+   
+
+  <div class="container content">
+    <img src="../../assets/img/directory.png" width="100%" class="img-responsive" alt="States Banner">
+
+    <div class="row ">
+      <div class="col-md-6">
+        <div id="cities" class="">
+        <div *ngIf='states' class="state-listings text-center">
+          <hr>
+                      <div class="input-group input-group-lg">
+                        <span id="sizing-addon1" class="input-group-addon glyphicon glyphicon-search"></span>
+                        <input type="text" class="search" class="form-control" [(ngModel)]='filterState.name' placeholder='Search States' aria-describedby="sizing-addon1">
+                      </div>
+                      <div class="row">
+                        <accordion [closeOthers]="oneAtATime">
+                        <accordion-group panelClass="customClass"  *ngFor='let state of states | search:filterState | orderBy:order:ascending'
+                          heading="{{state.name}}">  
+                          <div *ngIf='state.cities'>
+                            <div class="input-group input-group-lg">
+                            <span id="sizing-addon1" class="input-group-addon glyphicon glyphicon-search"></span>
+                            <input type="text" class="search" class="form-control" [(ngModel)]='filterCity.name' placeholder='Search Cities' aria-describedby="sizing-addon1">
+                          </div>
+                            <ul class="list-group row">
+                          <li class="list-group-item" *ngFor='let city of state.cities  | search:filterCity  | orderBy:order:ascending' [routerLink]="['/states', 'cities', city._id]"><a> {{city.name}}</a></li>
+                          </ul>
+                          </div>
+                        </accordion-group>
+                      </accordion>
+                      </div>
+              
+        </div>
+      </div>
+
+      </div>
+      
+      
+    </div>
+  </div>
+
 </section>
+
+
 

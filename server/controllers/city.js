@@ -4,7 +4,7 @@ const City = require('mongoose').model('City')
 
 module.exports = {  
     index(req, res) {
-        City.find({})
+        City.find({}).populate("stateId")
         .then(cities => res.json(cities))
         .catch(errorHandler.bind(res))
     },
@@ -19,6 +19,11 @@ module.exports = {
         .then(city => res.json(city))
         .catch(errorHandler.bind(res))
     },
+    destroy(req, res) {
+        City.findByIdAndRemove(req.params.id)
+        .then(ad => res.json(ad))
+        .catch(errorHandler.bind(res))
+    }
     
     
 

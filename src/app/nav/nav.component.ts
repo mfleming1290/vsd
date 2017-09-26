@@ -18,6 +18,7 @@ export class NavComponent implements OnInit {
   search: Search = new Search();
   order = "name";
   ascending = true;
+  location;
 
   constructor(private stateService: StateService, private authService: AuthService, private router: Router, private adService: AdService) { }
 
@@ -32,12 +33,18 @@ export class NavComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form)
-    this.router.navigate(['/search', form.name])
-    // window.location.reload()
+    this.router.navigate(['/search', form.name, form.location])
+    
   }
 
   ngOnInit() {
     this.getlinks()
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position => {
+        this.location = position.coords;
+        console.log(position.coords); 
+      });
+   }
   }
 
   isAuthed(): boolean {

@@ -18,3 +18,4 @@ const citySchema = new Schema ({
 });
 
 module.exports = mongoose.model('City', citySchema);
+

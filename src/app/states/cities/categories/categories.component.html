@@ -1,71 +1,36 @@
-<section class="wrapper" *ngIf='ads'>
-  <!-- Ads -->
+<section class="wrapper" *ngIf='collection'>
   <section>
-
     <div class="content-box">
       <div>
         <div class="content-title">
           <h1>{{ currentCategory }}</h1>
         </div>
-        <div class='content-title-underline'></div>
         <div class="text-center">
-          <!-- items being paged -->
-          <!--<div *ngFor="let item of pagedItems">{{item.title}}</div>-->
+          <section id="ads">
+            <div class="row">
+              <div class="col-md-4 text-center" [routerLink]="['/ad', item._id]" *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+                <div class="panel panel-danger panel-pricing">
+                  <div class="panel-heading">
+                    <img src="{{item.img}}" class="img-responsive" height="100%" width="100%" alt="ad image">
+                  </div>
+                  <div class="panel-body text-center">
+                    <p><strong>{{ item.company }}</strong></p>
+                  </div>
+                  <ul class="list-group text-center">
+                    <li class="list-group-item"> {{item.city}}, {{item.state}}</li>
+                    <li class="list-group-item"><i class="fa fa-tags"></i>{{ item.category }}</li>
+                    <li class="list-group-item"><i class="fa fa-phone"></i> {{item.phone}}</li>
+                    <li class="list-group-item"><i class="fa fa-phone"></i> {{item.address}} {{item.city}} {{item.state}}</li>
+                  </ul>
+                  <div class="panel-footer">
+                    <a class="btn btn-lg btn-block btn-blue" href="#"><i class="fa fa-desktop"></i>{{item.link}}!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
           <div>
-            <table class="table table-striped white table-responsive">
-              <thead>
-                <tr>
-                  <th class="text-center">Ad</th>
-                  <th class="text-center">Company</th>
-                  <th class="text-center">State</th>
-                  <th class="text-center">Phone</th>
-                  <th class="text-center">Category</th>
-                  <th class="text-center">Link</th>
-
-              </thead>
-              <tbody>
-                <tr [routerLink]="['/ad', ad._id]" *ngFor='let ad of pagedItems'>
-                  <td><img src="{{ad.img}}" class="img-responsive" height="150" width="200" alt="ad image"></td>
-                  <td>
-                    <p>{{ad.company}}</p>
-                  </td>
-                  <td>
-                    <p>{{ad.state}}</p>
-                  </td>
-                  <td>
-                    <p><i class="fa fa-phone"></i> {{ ad.phone}} </p>
-                  </td>
-                  <td>
-                    <p><i class="fa fa-tags"></i> {{ ad.category }}</p>
-                  </td>
-                  <td>
-                    <p><i class="fa fa-desktop"></i><a href="{{ad.link}}">{{ad.link}}</a></p>
-                  </td>
-
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div>
-            <!-- pager -->
-            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-              <li [ngClass]="{disabled:pager.currentPage === 1}">
-                <a (click)="setPage(1)">First</a>
-              </li>
-              <li [ngClass]="{disabled:pager.currentPage === 1}">
-                <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-              </li>
-              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                <a (click)="setPage(page)">{{page}}</a>
-              </li>
-              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                <a (click)="setPage(pager.currentPage + 1)">Next</a>
-              </li>
-              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                <a (click)="setPage(pager.totalPages)">Last</a>
-              </li>
-            </ul>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
         </div>
       </div>

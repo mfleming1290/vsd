@@ -27,6 +27,13 @@ export class CityService {
     .toPromise()
   }
 
+  removeCity(id: string) {
+    console.log('in service')
+    return this._http.delete(`/api/city/${ id } `)
+    .map(data => data.json())
+    .toPromise()
+  }
+
   
 
 }

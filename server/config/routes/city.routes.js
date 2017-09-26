@@ -8,5 +8,5 @@ module.exports = router
     // .put('/:id', cityController.update)
     .get('/single/:id', cityController.single)
     .get('/:state', cityController.show)
-    // .delete('/:id', cityController.destroy);
+    .delete('/:id', cityController.destroy);
     

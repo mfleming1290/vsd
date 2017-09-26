@@ -2,9 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise'
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+
 
 @Injectable()
 export class AdService {
+
+  observedAds = new BehaviorSubject(null);
+
 
   constructor(private _http: Http) { }
 
@@ -48,18 +53,18 @@ export class AdService {
     .toPromise()
   }
 
-  getCategoryAds(cat) {
-    console.log(' get cad ads in service ', cat)
-    return this._http.get(`/api/category/${cat}`)
-      .map(res => res.json())
+  // getCategoryAds(cat) {
+  //   console.log(' get cad ads in service ', cat)
+  //   return this._http.get(`/api/category/${cat}`)
+  //     .map(res => res.json())
 
-  }
+  // }
 
-  getAdsFromCat(id){
-    console.log('in service!!')
-    return this._http.get(`/api/category/category/${id}`)
-      .map(res => res.json())
-  }
+  // getAdsFromCat(id){
+  //   console.log('in service!!')
+  //   return this._http.get(`/api/category/category/${id}`)
+  //     .map(res => res.json())
+  // }
 
   createState(state){
     return this._http.post('/api/states', state)
@@ -67,11 +72,17 @@ export class AdService {
     .toPromise()
   }
 
-  getSearchAds(id: string) {
+  getSearchAds(id: string, loc) {
     console.log('in service')
-    return this._http.get(`/api/ad/search/${ id } `)
+    return this._http.get(`/api/ad/search/${ id }/${ loc } `, )
     .map(data => data.json())
-    .toPromise()
+    // .toPromise()
   }
+
+  updateSearchAds(ads) {
+    this.observedAds.next(ads);
+  }
+
+  
 
 }

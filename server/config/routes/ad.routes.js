@@ -7,7 +7,7 @@ module.exports = router
     .get('/:id', adController.show)
     .put('/:id', adController.update)
     .delete('/:id', adController.destroy)
-    .get('/search/:id', adController.getSearchAds)
     .get('/states/:id', adController.getState)
+    .get('/search/:id/:loc', adController.getSearchAds)
     .get('/category/:category', adController.getCategories);
 

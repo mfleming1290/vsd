@@ -1,8 +1,16 @@
-<!--<style>
-   #category-cover {
-    background-image: url( `{{img}}` );
-    };
-</style>-->
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
 <div id="category-cover" [style.background-image]="img" class="bg-parallax ">
   <div id="category-content-box">
     <div id="category-content-box-inner" class="text-center">
@@ -12,14 +20,15 @@
   </div>
 </div>
 <div *ngIf='ad'>
-
   <div class="container info">
-
     <div class="row">
-      <div class="col-md-6 badge-img">
-        <img src="../../../../../assets/img/id-badge.svg" class="img-responsive" alt="">
-        <!--<img src="{{ad.img}}" class="img-responsive" height="100%" width="100%" alt="ad image">-->
-
+      <div class="col-md-6 badge-img" >
+        <div class="map">
+          <ng2-map zoom="14" center="{{ ad.mapCoordinates }}">
+          <marker (click)="showInfoWindow($event)"[position]="position"></marker>
+        </ng2-map>
+        </div>
+        <!--<img src="../../../../../assets/img/id-badge.svg" class="img-responsive" alt="">-->
       </div>
       <div class="col-md-6 ad-info">
         <h1>Contact</h1>
@@ -29,6 +38,22 @@
           <p><i class="fa fa-phone"></i> {{ ad.phone}} </p>
           <p><i class="fa fa-tags"></i> {{ ad.category }}</p>
           <p><i class="fa fa-desktop"></i><a href="{{ad.link}}">{{ad.link}}</a></p>
+          <div *ngIf='ad.video'>
+            <button type="button" class="btn btn-primary btn3d" (click)="openModal(template)">Business Video Ad</button>
+            <ng-template #template>
+              <div class="modal-header">
+                <h4 class="modal-title pull-left">Business Video Ad</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <div class="modal-body">
+                <video width="100%" height="100%" controls>
+                  <source src="{{ad.video}}" type="video/mp4"> Your browser does not support the video tag.
+                </video>
+              </div>
+            </ng-template>
+          </div>
           <div class='ad-title-underline'></div>
           <p> {{ ad.description }}</p>
         </div>
@@ -39,4 +64,13 @@
 
 
 </div>
+
+<!--<ng2-map center="{{latlon}}"></ng2-map>-->
+
+<!--<ng2-map zoom="14" center="{{latlon}}">
+      <marker (click)="showInfoWindow($event)"[position]="position"></marker>
+    </ng2-map>-->
+
+
+
 

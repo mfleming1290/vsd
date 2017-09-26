@@ -21,6 +21,8 @@ const sessionConfig = {
     }
 };
 
+
+
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 
@@ -46,6 +48,7 @@ app.use('/api/city', require('./server/config/routes/city.routes'));
 app.use('/api/category', require('./server/config/routes/category.routes'));
 app.use('/api/states', require('./server/config/routes/state.routes'));
 app.use('/uploads', require('./server/config/routes/image.routes'));
+app.use('/api/sendMail', require('./server/config/routes/mail.routes'));
 
 
 

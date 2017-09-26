@@ -9,5 +9,9 @@ export class Ad {
     category: string;
     imgName: string;
     img: string;
-    city: string
+    video: string;
+    videoName: string;
+    city: string;
+    address: string;
+    zipcode: number;
 }

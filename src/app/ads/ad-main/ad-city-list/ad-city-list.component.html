@@ -1,0 +1,31 @@
+<section id="bl">
+  <div class="vertical-container">
+    <div class="text-center">
+      <h1>Cities</h1>
+      <!-- items being paged -->
+      <table class="table table-striped white table-responsive">
+        <thead>
+          <tr>
+            <th class="text-center">
+              Name
+            </th>
+            <th class="text-center">
+              State
+            </th>
+            <th class="text-center">Actions</th>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+            <td>{{item.name}}</td>
+            <td>{{item.stateId.name}}</td>
+            <td (click)='tdClick($event)'> <button class='btn btn-danger btn-sm' (click)='removeCity(city)'>Delete City</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- pager -->
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+  </div>
+</section>
+

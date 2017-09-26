@@ -1,0 +1,32 @@
+<section id="bl">
+  <div>
+    <div class="vertical-container">
+      <div class="text-center">
+        <h1>Ads</h1>
+        <!-- items being paged -->
+        <table class="table table-striped white">
+          <thead>
+            <tr>
+              <th class="text-center">
+                Company
+              </th>
+              <th class="text-center">
+                name
+              </th>
+              <th class="text-center">Actions</th>
+          </thead>
+          <tbody>
+            <tr [routerLink]="['/ads', item._id]" *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+              <td>{{item.name}}</td>
+              <td>{{item.company}}</td>
+              <td (click)='tdClick($event)'> <button class='btn btn-danger btn-sm' (click)='removeAd(item)'>Delete Ad</button></td>
+            </tr>
+          </tbody>
+        </table>
+                      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,24 +1,7 @@
-.citySearch {
-    background-color: #053659;
-    padding: 10px 0;
-}
-.input-group span {
-    vertical-align: top;
-}
+/*====================================================
+                    LIST GROUP
+======================================================*/
 
-.citySearch p {
-    color: #fff;
-    display: inline
-}
-
-.city-listings {
-    margin-top: 30px;
-}
-
-.city-listings img {
-    margin-left: 50px;
-    margin-bottom: 20px;
-}
 
 .list-group li:nth-child(odd) {
 /*background-color: #F9F9F9;*/
@@ -28,8 +11,7 @@ background-color: #F9F9F9;
 }
 
 .list-group {
-    height: 500px;
-    overflow: scroll;
+  
     margin-top: 10px;    
     font-weight: bold;
 
@@ -38,5 +20,22 @@ background-color: #F9F9F9;
 .list-group a {
             color: black;
 
+}
+
+/*====================================================
+                        CONTENT
+======================================================*/
+
+.content-title h3 {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+.content-title-underline {
+    width: 30px;
+    height: 3px;
+    background-color: #50563C;
+    margin: 0 auto 30px auto;
 }
 

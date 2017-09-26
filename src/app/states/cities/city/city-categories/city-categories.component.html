@@ -1,0 +1,3 @@
+<div *ngIf='categories'>
+    <div class="list-group-item col-md-4" *ngFor='let cat of categories  | search:filterCategory  | orderBy:order:ascending' [routerLink]="['/states', 'cities' , cityId, cat._id]"><a> {{cat.name}}</a></div>
+</div>

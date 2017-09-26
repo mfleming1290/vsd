@@ -6,6 +6,19 @@ var enu = {
   message: 'Invalid State.'
 }
 
+const pointSchema = new Schema({
+     type: {
+         type: String,
+         default: 'Point'
+     },
+     coordinates: {
+         type: [Number],
+         index: '2dsphere'
+     }
+ })
+
+
+
 const adSchema = new Schema({
     name: {
         type: String,
@@ -14,6 +27,7 @@ const adSchema = new Schema({
     company: {
         type: String,
         trim: true,
+        index : "text"
     },
     state: {
         type: String,
@@ -50,6 +64,10 @@ const adSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'State',
     },
+    mapCoordinates: {
+        type: String,
+        trim: true
+    },
     cityId: {
         type: Schema.Types.ObjectId,
         ref: 'State',
@@ -57,7 +75,21 @@ const adSchema = new Schema({
     img: {
         type: String,
         trim: true
-    }
+    },
+    video: {
+        type: String,
+        trim: true
+    },
+    address: {
+        type: String,
+        trim: true
+    },
+    zipcode: {
+        type: Number,
+        trim: true
+    },
+    geometry: pointSchema,
+    
     
     
 

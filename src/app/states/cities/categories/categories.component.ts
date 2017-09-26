@@ -6,6 +6,8 @@ import 'rxjs/add/operator/switchMap';
 import { Subscription } from "rxjs/Subscription";
 import { StateService } from "../../../services/state.service";
 import { PagerService } from '../../../services/pager.service'
+import { CategoryService } from "../../../services/category.service";
+
 
 
 @Component({
@@ -20,50 +22,29 @@ export class CategoriesComponent implements OnInit {
   ads; 
   subscription: Subscription;
   currentState
-  currentCity
-
-  // array of all items to be paged
-    private allItems: any[];
- 
-    // pager object
-    pager: any = {};
- 
-    // paged items
-    pagedItems: any[];
+  currentCity;
+  p: number = 1;
+  collection: any[];
 
   @Output() updatedBook = new EventEmitter<Ad>();
 
-  constructor(private pagerService: PagerService ,private stateService: StateService,private adService : AdService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private categoryService: CategoryService, private pagerService: PagerService ,private stateService: StateService,private adService : AdService, private route: ActivatedRoute, private router: Router) { }
 
-  
+
 
   getAds() {
     this.subscription = this.route.paramMap
       .switchMap(param => 
-       this.adService.getAdsFromCat(param.get('cat'))
+       this.categoryService.getAdsFromCat(param.get('cat'))
       )
       .subscribe((ad) => {
-        console.log(ad)
+        this.currentCategory = ad[0].category
         this.ads = ad
-        this.allItems = ad;
- 
-                // initialize to page 1
-                this.setPage(1);
+        this.collection = ad;
+
       });
   }
 
-
-    setPage(page: number) {
-        if (page < 1 || page > this.pager.totalPages) {
-            return;
-        }
- 
-        // get pager object from service
-        this.pager = this.pagerService.getPager(this.allItems.length, page);
- 
-        // get current page of items
-        this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
-    }
 
 
   ngOnInit() {
@@ -72,13 +53,6 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-  // onUpdate(book: Book) {
-  //   // this.updatedBook.emit(book)
-  //   this.bookService.updateBook(book)
-  //   // .then(upBook => this.updatedBook.emit(upBook))
-  //   .then(() => this.router.navigate(['/books']))
-  //   .catch(console.log)
-  // }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

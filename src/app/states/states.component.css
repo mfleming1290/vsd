@@ -1,138 +1,35 @@
+
 /*====================================================
-                        HOME
+                        STATES
 ======================================================*/
 
 .states {
-        background-color: #EFEFEF;
-        padding-bottom: 10px;
-}
-
-.content {
-        background-color: #fff;
-        padding-top:10px;
-}
-
-        .dual-list .list-group {
-            margin-top: 8px;
-        }
-
-        .list-left li, .list-right li {
-            cursor: pointer;
-        }
-
-        .list-arrows {
-            padding-top: 100px;
-        }
-
-            .list-arrows button {
-                margin-bottom: 20px;
-            }
+  background-color: #EFEFEF;
+  padding-bottom: 10px;
+} 
 
 
 /*====================================================
-                        PARALLAX (Generic)
+                        Accordian
 ======================================================*/
 
-.bg-parallax {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    /*background-attachment: fixed;*/
+:host >>> .card.customClass,
+.card.customClass .card-header,
+.panel.customClass {
+  background-color: #2469D9;
+  color: #fff;
+  margin: 0px;
+  padding: 0px;
+}
+:host >>> .panel.customClass .panel-body {
+  background-color: #337aa7;
+  
 }
 
-.stateSearch {
-    background-color: #053659;
-    padding: 10px 0;
+.panel-group .panel {
+  margin-top: 5px;
 }
 
-
-.stateSearch p {
-    color: #fff;
-    display: inline
+.input-group {
+  margin-bottom: 10px;
 }
-
-legend {
-    text-align: center;
-    margin: 10px auto;
-    font-size: 30px;
-}
-
-.state-listings {
-    margin-top: 30px;
-    /*border: 1px solid black;*/
-}
-
-.state-listings .pick {
-    margin-bottom: 20px;
-}
-
-
-
-
- .stateList, .stateList p,  .stateList a {
-    color: black;
-    display: inline;
-    font-weight: bold;
-}
-
-.cityCount {
-    font-size: 10px;
-}
-
-
-
-
-
-
-.list-group {
-    height: 500px;
-    overflow: scroll;
-
-font-weight: bold;
-}
-
-.list-group a {
-            color: black;
-
-}
-
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 1200px)  { 
-    .list-group li:nth-child(3n+2) {
-    background-color: #F9F9F9;
-
-}
-}
-
-@media (min-width: 989px) and (max-width: 1200px) { 
-    .list-group li:nth-child(odd) {
-/*background-color: #F9F9F9;*/
-background-color: #F9F9F9;
-
-
-}
-    
-}
-
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) { 
-    
-    .list-group li:nth-child(odd) {
-/*background-color: #F9F9F9;*/
-background-color: #F9F9F9;
-
-
-}
-
- }
- 
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) { 
-    .list-group li:nth-child(odd) {
-/*background-color: #F9F9F9;*/
-background-color: #F9F9F9;
-
-
-}
-
- }

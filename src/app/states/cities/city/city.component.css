@@ -66,10 +66,8 @@ section {
 ======================================================*/
 
 
-
 #ads {
     background-color: white;
-    padding-top: 150px;
 }
 
 .ad-item-img {
@@ -270,21 +268,15 @@ z-index: 1
     width: 100%;
 }
 
-.list-group-two .list-buttons:not(:first-child) {
-    margin-left: 10px; 
+
+
+
+
+.list-group-item a{
+    color: black;
 }
 
-/*.list-group-two {
-    width: 50px;
-    overflow-y: scroll;
-}*/
 
-.list-group-two {
-    background-color: #EFEFEF;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 15px;
-}
 
 .list-group-two  button {
     display: inline-block;
@@ -306,4 +298,131 @@ z-index: 1
 .cat-search p {
     display: inline-block
 }
+
+.cat-search {
+        background-color: #EFEFEF;
+
+}
+
+.side-bar {
+   max-height: 500px;
+   overflow: scroll;
+   background-color: #EFEFEF;
+   
+}
+
+.top-bar {
+   max-height: 500px;
+   overflow: scroll;
+   
+}
+
+.side-container {
+    /*border-top: 1px solid #000;
+    border-left: 1px solid #000;
+   border-right: 1px solid #000;
+   border-bottom: 1px solid #000;*/
+   margin-top: 20px;
+}
+
+.list-group li:nth-child(odd) {
+    /*background-color: #F9F9F9;*/
+    background-color: #F9F9F9;
+  }
+
+
+  
+
+  /*.card.customClass,
+.card.customClass .card-header,
+.panel.customClass {
+  background-color: #5bc0de;
+  color: #fff;
+}
+.panel.customClass .panel-body {
+  background-color: #337aa7;
+}*/
+
+:host >>> .card.customClass,.card.customClass .card-header,.panel.customClass {
+margin: 0px;
+padding: 0px;
+color: #000;
+background-color: #F9F9F9;
+}
+
+
+
+:host >>> .panel-body.card-block.card-body {
+background-color: #fff;
+margin: 0px;
+padding: 0px;
+}
+
+
+:host >>> .panel.customClass .panel-body {
+background-color: #2469D9;
+margin: 0px;
+padding: 0px;
+}
+
+.searchState {
+    width: 100%;
+}
+
+:host >>> .firstAccord .panel.secondCustomClass .panel-body {
+background-color: #2469D9;
+margin: 0px;
+padding: 0px;
+}
+
+
+:host >>> .firstAccord .panel-heading.card-header {
+background-color: #2469D9;
+
+
+}
+
+:host >>> .panel-heading.card-header {
+background-color: #2469D9;
+color: #fff
+
+}
+
+:host >>> accordian-group.panel {
+background-color: #2469D9;
+color: #fff
+
+}
+
+:host >>> accordian.panel-group {
+background-color: #2469D9;
+color: #fff
+
+}
+ 
+ 
+:host >>> .side-bar .panel-heading.card-header {
+background-color: #fff;
+color: #000;
+}
+
+:host >>> div.panel.card.secondCustomClass {
+padding: 5px;
+}
+
+:host >>> .top-bar .panel-heading.card-header {
+background-color: #2469D9;
+
+}
+ 
+/* IE8- CSS hack */
+@media \0screen\,screen\9 {
+    .gradient {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff808080",endColorstr="#ffa9a9a9",GradientType=0);
+    }
+}
+
+
+
+
 

@@ -13,63 +13,38 @@ import { PagerService } from '../../services/pager.service'
   styleUrls: ['./search-list.component.css']
 })
 export class SearchListComponent implements OnInit {
+  p: number = 1;
+    collection: any[];  
 
-  ads: Ad[];
   subscription: Subscription;
-
-  // array of all items to be paged
-    private allItems: any[];
- 
-    // pager object
-    pager: any = {};
- 
-    // paged items
-    pagedItems: any[];
 
 
   constructor(private pagerService: PagerService ,private adService : AdService, private route: ActivatedRoute, private router: Router) { }
 
+
   getAds() {
     this.subscription = this.route.paramMap
       .switchMap(param => 
-       this.adService.getSearchAds(param.get('id'))
+       this.adService.getSearchAds(param.get('id'), param.get('loc'))
+       
       )
       .subscribe((ad) => {
-        console.log(ad)
-        this.ads = ad
-        this.allItems = ad;
- 
-                // initialize to page 1
-                this.setPage(1);
-      });
+        console.log('ads found',ad)
+        this.collection = ad;
+        
+      })
+      
   }
 
-
-    setPage(page: number) {
-        if (page < 1 || page > this.pager.totalPages) {
-            return;
-        }
- 
-        // get pager object from service
-        this.pager = this.pagerService.getPager(this.allItems.length, page);
- 
-        // get current page of items
-        this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
-    }
 
 
   ngOnInit() {
     this.getAds()
-    // this.getPages()
+    
   }
 
 
-  onUpdate(ad: Ad) {
-    console.log(ad)
-    this.adService.updateAd(ad)
-    .then(() => this.router.navigate(['/ads']))
-    .catch(console.log)
-  }
+  
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

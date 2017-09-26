@@ -5,7 +5,7 @@ const errorHandler = require('./errors')
 
 module.exports = {
     index(req, res) {
-        State.find({})
+        State.find({}).populate("cities")
         .then(games => res.json(games))
         .catch(errorHandler.bind(res))
     },

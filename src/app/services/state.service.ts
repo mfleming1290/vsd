@@ -28,13 +28,7 @@ export class StateService {
       
   }
 
-  
 
-  getCategoryAds(category) {
-    return this._http.get(`/api/category/${category}`)
-      .map(res => res.json())
-
-  }
 
   createState(state){
     return this._http.post('/api/states', state)
@@ -42,19 +36,13 @@ export class StateService {
     .toPromise()
   }
 
+  removeState(id: string) {
+    console.log('in service')
+    return this._http.delete(`/api/states/${ id } `)
+    .map(data => data.json())
+    .toPromise()
+  }  
+
   
-
-  getCategories(id) {
-    console.log(' in service ')
-    return this._http.get(`/api/category/${id}`)
-      .map(res => res.json())
-  }
-
-  getCategory(id) {
-    console.log(' in service ')
-    return this._http.get(`/api/category/${id}`)
-      .map(res => res.json())
-      .toPromise()
-  }
 
 }

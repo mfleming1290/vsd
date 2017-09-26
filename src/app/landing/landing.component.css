@@ -259,7 +259,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', end
     width: 60%;
     height: 700px;
     float: right;
-    background-image: url(../../assets/img/veterans/handshake3.png);
+    background-image: url("../../assets/img/veterans/handshake3.png");
     border-left: 400px solid #fff;
     border-bottom: 700px solid transparent;
 }
