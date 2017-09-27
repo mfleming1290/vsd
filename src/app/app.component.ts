@@ -16,7 +16,6 @@ export class AppComponent implements OnDestroy {
   title = 'app';
       private sub: any;
 
-  // constructor(private slimLoadingBarService: SlimLoadingBarService) {  }
 
   constructor(private slimLoader: SlimLoadingBarService, private router: Router) {
         // We listen the position's changes

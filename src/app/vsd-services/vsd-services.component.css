@@ -1,14 +1,5 @@
 /*====================================================
                 DEFAULT VALUES:
-
-                Font Family                 : Roboto Condensed
-                
-                Greenish Blue               : #34c6d3       (Buttons, Icons, Links, Lines & Backgrounds)
-                Steel Gray                  : #41464b       (Headings)
-                Blue Bayoux                 : #64707b       (Paragraphs)
-                White                       : #fff          (Text With Black Backgrounds)
-                Black                       : #000 
-
 ======================================================*/
 
 
@@ -39,7 +30,7 @@ h3 {
 
 
 /*====================================================
-                        PARALLAX (Generic)
+            PARALLAX (Generic)
 ======================================================*/
 
 .bg-parallax {
@@ -105,13 +96,6 @@ h3 {
     border-radius: 0;
     display: none;
 }
-
-
-
-
-/*====================================================
-                       ANIMATE
-======================================================*/
 
 
 /*====================================================
@@ -231,43 +215,6 @@ h3 {
 .left {
     text-align: left;
 }
-
-
-
-/*====================================================
-                       SOCIAL
-======================================================*/
-
-.social-list {
-    padding-left: 0;
-}
-
-.social-list li {
-    list-style: none;
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    margin-right: 6px;
-    margin-top: 10px;
-}
-
-.social-icon i {
-    font-size: 17px;
-}
-
-.icon-gray i {
-    color: #64707b;
-}
-
-.icon-white i {
-    color: #fff;
-}
-
-.social-icon i:hover {
-    color: #4b5320;
-}
-
-
 
 
 

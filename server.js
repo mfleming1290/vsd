@@ -31,7 +31,7 @@ app.use(cookieParser('asdkjldfjksnasudfh'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 require('./server/config/database');
-require('./server/config/seeds');
+// require('./server/config/seeds');
 
  app.use(function(req, res, next) { //allow cross origin requests
         res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
@@ -49,6 +49,8 @@ app.use('/api/category', require('./server/config/routes/category.routes'));
 app.use('/api/states', require('./server/config/routes/state.routes'));
 app.use('/uploads', require('./server/config/routes/image.routes'));
 app.use('/api/sendMail', require('./server/config/routes/mail.routes'));
+app.use(require(path.resolve('server', 'modules', 'populateUser')));
+
 
 
 

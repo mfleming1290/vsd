@@ -14,7 +14,6 @@ export class AdService {
   constructor(private _http: Http) { }
 
   getAds() {
-    console.log('in get ads service')
     return this._http.get('/api/ad')
     .map(res => res.json())
     .toPromise()
@@ -27,14 +26,12 @@ export class AdService {
   }
 
   getAd(id) {
-    console.log(' in service ')
     return this._http.get(`/api/ad/${id}`)
       .map(res => res.json())
       .toPromise()
   }
 
   getStateAds(id) {
-    console.log(' in service ')
     return this._http.get(`/api/ad/states/${id}`)
       .map(res => res.json())
       
@@ -47,24 +44,12 @@ export class AdService {
   }
 
   removeAd(id: string) {
-    console.log('in service')
     return this._http.delete(`/api/ad/${ id } `)
     .map(data => data.json())
     .toPromise()
   }
 
-  // getCategoryAds(cat) {
-  //   console.log(' get cad ads in service ', cat)
-  //   return this._http.get(`/api/category/${cat}`)
-  //     .map(res => res.json())
-
-  // }
-
-  // getAdsFromCat(id){
-  //   console.log('in service!!')
-  //   return this._http.get(`/api/category/category/${id}`)
-  //     .map(res => res.json())
-  // }
+  
 
   createState(state){
     return this._http.post('/api/states', state)
@@ -73,7 +58,6 @@ export class AdService {
   }
 
   getSearchAds(id: string, loc) {
-    console.log('in service')
     return this._http.get(`/api/ad/search/${ id }/${ loc } `, )
     .map(data => data.json())
     // .toPromise()
@@ -81,6 +65,20 @@ export class AdService {
 
   updateSearchAds(ads) {
     this.observedAds.next(ads);
+  }
+
+  getBanners() {
+    console.log('in service')
+    return this._http.get('/uploads/banner' )
+    .map(data => data.json())
+    .toPromise()
+
+  }
+
+  removeBanner(id: string) {
+    return this._http.delete(`/uploads/banner/${ id } `)
+    .map(data => data.json())
+    .toPromise()
   }
 
   

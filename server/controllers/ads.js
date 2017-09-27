@@ -33,7 +33,6 @@ class AuthorsController {
         .catch(errorHandler.bind(res))
     }
     create(req, res) {
-        console.log('in create')
         Ad.create(req.body)
                 .then((ad) => {
                     return City.findOne({name:ad.city})
@@ -59,7 +58,6 @@ class AuthorsController {
                                             ad.cityId = city._id
                                             ad.save()
                                             .then((ad) => {
-                                                console.log(ad)
                                             res.json(ad)
                                             })
                                             })
@@ -92,7 +90,6 @@ class AuthorsController {
                                             ad.cityId = city._id
                                             ad.save()
                                             .then((ad) => {
-                                                console.log(ad)
                                             res.json(ad)
                                             })
                                             })
@@ -107,13 +104,11 @@ class AuthorsController {
             .catch(errorHandler.bind(res))
     }      
     show(req, res) {
-        console.log('in show')
         Ad.findById(req.params.id)
         .then(ad => res.json(ad))
         .catch(errorHandler.bind(res))
     }
     getState(req, res) {
-        console.log('in get state')
         Ad.find({state: req.params.id})
         .then(ad => res.json(ad))
         .catch(errorHandler.bind(res))
@@ -147,61 +142,13 @@ class AuthorsController {
         .catch(errorHandler.bind(res))
     }
     getCategories(req, res) {
-        console.log('id cats', req.params.category)
         Ad.find({adCategory: req.params.category})
         .then(ad => res.json(ad))
         .catch(errorHandler.bind(res))
     }
     getSearchAds(req, res) {
-//         console.log('in get search ads', req.params.id)
-//         geocoder.geocode(req.params.loc)
-//   .then(function(address) {
-//     console.log(address);
-//     console.log(address[0].longitude ,address[0].latitude)
-//     Ad.find({
-//             "$text": { "$search": "query string" },
-//             "geometry": {    // this will your field name
-//                 "$geoWithin": {
-//                     "$centerSphere": [[
-//                     address[0].longitude ,address[0].latitude
-//                     ], 500 ]
-//                 }
-//             }
-//         }) 
-//     .then((ads) => {
-//         console.log(ads)
-//         res.json(ads)
-//     })
-//     Ad.geoNear(
-        
-//                 {type: 'Point', coordinates:[address[0].longitude ,address[0].latitude]},
-//                 {spherical: true, maxDistance:200000}
-//             )
-//             .then((ads) => {
-//                 console.log('new ads', ads)
-//                 res.json(ads)
-//                 ads.find({company: req.body.id})
-//                 .then((adnew) => {
-//                     console.log(adnew)
-//                 })
-//             })
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//   })
-
-        // let newAds = []
-        // ads.forEach(function(locs) {
-        //     if(ads._id = locs._id) {
-        //         newAds.push(ads)
-        //     }
-        // }, this);
-           
             geocoder.geocode(req.params.loc)
             .then(function(address) {
-            console.log(address[0].longitude ,address[0].latitude)
-
-            // Ad.find({ $text: { $search: req.params.id  }},{score: {$meta: "textScore"}}).sort({score:{$meta:"textScore"}})
             Ad.find({$text: {$search: req.params.id}, geometry: {$geoWithin: {$centerSphere: [[address[0].longitude ,address[0].latitude], 100 / 3963.2]}}})
                     .then((ads) => { 
                         console.log('found ads',ads)

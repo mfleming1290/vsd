@@ -27,7 +27,8 @@ const adSchema = new Schema({
     company: {
         type: String,
         trim: true,
-        index : "text"
+        index : "text",
+        required: [true, 'Please enter a company name']
     },
     state: {
         type: String,
@@ -54,7 +55,8 @@ const adSchema = new Schema({
     },
     category: {
         type: String,
-        trim: true
+        trim: true,
+        required: [true, 'Please enter a category']
     },
     adCategory: {
         type: Schema.Types.ObjectId,
@@ -82,11 +84,13 @@ const adSchema = new Schema({
     },
     address: {
         type: String,
-        trim: true
+        trim: true,
+        required: [true, 'Please enter an address']
     },
     zipcode: {
         type: Number,
-        trim: true
+        trim: true,
+        required: [true, 'Please enter a zipcode']
     },
     geometry: pointSchema,
     

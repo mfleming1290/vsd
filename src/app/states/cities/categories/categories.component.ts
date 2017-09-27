@@ -49,7 +49,6 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.getAds()
-    // this.getPages()
   }
 
 

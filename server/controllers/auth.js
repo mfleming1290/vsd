@@ -33,7 +33,7 @@ module.exports = {
 }
 
 function login(req, res, user) {
-    req.session.user = user.toObject();
+    req.session.user = user;
     delete req.session.user.password;
 
     res.cookie('userID', user._id.toString());

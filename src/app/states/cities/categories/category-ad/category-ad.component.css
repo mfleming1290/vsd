@@ -8,6 +8,15 @@ h3 {
     
 }
 
+#map {
+    height: 100%;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 a {
   font-size: 25px;  
 }

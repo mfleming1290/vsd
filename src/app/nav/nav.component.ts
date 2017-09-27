@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from "@angular/router";
 import { AdService } from "../services/ad.service";
 import { StateService } from "../services/state.service";
 import { Search } from "../classes/search";
 import { AuthService } from "../services/auth.service";
 import { OrderByPipe } from "../order-by.pipe";
-
 
 @Component({
   selector: 'app-nav',
@@ -20,7 +19,7 @@ export class NavComponent implements OnInit {
   ascending = true;
   location;
 
-  constructor(private stateService: StateService, private authService: AuthService, private router: Router, private adService: AdService) { }
+  constructor(private cdRef:ChangeDetectorRef, private stateService: StateService, private authService: AuthService, private router: Router, private adService: AdService) { }
 
   getlinks() {
     this.stateService.getStates()
@@ -30,9 +29,14 @@ export class NavComponent implements OnInit {
     .catch(() => {})
   }
 
+  ngAfterViewChecked()
+{
+  this.isAuthed()
+  this.cdRef.detectChanges();
+}
+
 
   onSubmit(form) {
-    console.log(form)
     this.router.navigate(['/search', form.name, form.location])
     
   }
@@ -42,18 +46,19 @@ export class NavComponent implements OnInit {
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(position => {
         this.location = position.coords;
-        console.log(position.coords); 
-      });
+      })
    }
   }
 
-  isAuthed(): boolean {
+  isAuthed() {
+    
     return this.authService.isAuthed();
+
   }
 
   logout() {
     this.authService.logout()
-      .then(() => this.router.navigate(['home']))
+      .then(() => this.router.navigate(['']))
       .catch(() => {})
   }
 

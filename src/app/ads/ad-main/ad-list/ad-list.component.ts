@@ -24,19 +24,17 @@ export class AdListComponent implements OnInit {
   collection: any[];
     
 
-  constructor(private orderByPipe: OrderByPipe, private stateService: StateService, private router: Router, private adService: AdService, private pagerService: PagerService) { }
+  constructor(private orderByPipe: OrderByPipe, private stateService: StateService, private router: Router, private adService: AdService) { }
 
   getAds() {
     this.adService.getAds()
     .then(ads => {
-      console.log('getting pages from the server');
       
       return this.orderByPipe.transform(ads, this.order, this.ascending)
 
     })
     .then((orderedAds) => {
       this.collection = orderedAds;
-      // initialize to page 1
 
     })
     .catch(() => {})
@@ -51,9 +49,8 @@ export class AdListComponent implements OnInit {
     }
 
   removeAd(ad) {
-    console.log('in component')
     this.adService.removeAd(ad._id)
-    .then(() => this.router.navigate(['/']))
+    .then(() => this.router.navigate(['/ads']))
     .catch(console.log)
   }
 

@@ -22,7 +22,6 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit(user: User) {
-    console.log(user)
     this.auth.register(user)
       .then(() => this.router.navigate(['ads']))
       .catch(response => this.handleErrors(response.json()))

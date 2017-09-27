@@ -35,7 +35,7 @@
       z-index: 3;
     }
 
-    #flipkart-navbar {
+    #vsd-navbar {
       background: #232526;
       /* fallback for old browsers */
       background: -webkit-linear-gradient(to bottom, #414345, #232526);
@@ -53,7 +53,7 @@
       padding-bottom: 20px;
     }
 
-    .flipkart-navbar-input {
+    .vsd-navbar-input {
       padding: 11px 16px;
       border-radius: 2px 0 0 2px;
       border: 0 none;
@@ -62,7 +62,7 @@
       color: #000;
     }
 
-    .flipkart-navbar-button {
+    .vsd-navbar-button {
       background-color: #2469d9;
       border: 1px solid #2469d9;
       border-radius: 0 2px 2px 0;

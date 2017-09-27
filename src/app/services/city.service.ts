@@ -15,7 +15,6 @@ export class CityService {
   }
 
   getAllCities() {
-    console.log('in get all city service')
     return this._http.get('/api/city')
     .map(res => res.json())
     .toPromise()
@@ -28,7 +27,6 @@ export class CityService {
   }
 
   removeCity(id: string) {
-    console.log('in service')
     return this._http.delete(`/api/city/${ id } `)
     .map(data => data.json())
     .toPromise()

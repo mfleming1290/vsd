@@ -24,12 +24,10 @@ export class AdStateListComponent implements OnInit {
   getStates() {
     this.stateService.getStates()
     .then(states => {
-      console.log('getting pages from the server');
       return this.orderByPipe.transform(states, this.order, this.ascending)
 
     })
     .then((orderedStates) => {
-      console.log('ordered states',orderedStates)
       this.collection = orderedStates;
     })
     .catch(() => {})
@@ -40,9 +38,8 @@ export class AdStateListComponent implements OnInit {
     }
 
   removeState(state) {
-    console.log('in component')
     this.stateService.removeState(state._id)
-    .then(() => this.router.navigate(['/']))
+    .then(() => this.router.navigate(['/ads']))
     .catch(console.log)
   }
 

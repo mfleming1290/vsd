@@ -5,21 +5,23 @@ module.exports = {
 sendMail(req, res) {
     console.log('in mailer',req.body)
 //   var transporter = nodemailer.createTransport('smtps://contact@veteransresourceproject.com.com:password@smtp.gmail.com');
-  let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: 'hwstqldhdc4qywze@ethereal.email',
-            pass: 'vQAVC6brTzmQeKKt3r'
-        }
-    });
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    port: 443,
+    options: {
+      debug: true,
+    },
+    auth: {
+        user: 'veteranserviceform@gmail.com',
+        pass: 'Keystone9021!'
+    }
+  });
   var data = req.body;
   var mailOptions = {
     from: data.contactEmail,
-    to: 'matthewjamesfleming@gmail.com',
+    to: 'contact@veteransresourceproject.com',
     subject: 'Email sent by ' + data.contactName,
-    text: data.contactMessage
+    text: data.contactName + data.contactEmail + data.contactMessage
   };
 
   transporter.sendMail(mailOptions, function(error, info) {

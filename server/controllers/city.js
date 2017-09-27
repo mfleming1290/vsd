@@ -9,7 +9,6 @@ module.exports = {
         .catch(errorHandler.bind(res))
     },
     show(req, res) {
-        console.log('in show')
         City.find({stateId: req.params.state})
         .then(city => res.json(city))
         .catch(errorHandler.bind(res))

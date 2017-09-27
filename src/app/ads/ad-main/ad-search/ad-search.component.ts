@@ -17,7 +17,6 @@ export class AdSearchComponent implements OnInit {
   constructor(private router: Router,) { }
 
   onSubmit(form) {
-    console.log(form)
     this.router.navigate(['/ads/search/results', form.name, form.location])
     // window.location.reload()
   }

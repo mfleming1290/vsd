@@ -25,7 +25,6 @@ export class AdCityListComponent implements OnInit {
   getCities() {
     this.CityService.getAllCities()
     .then(cities => {
-      console.log('getting pages from the server', cities);
       
       return this.orderByPipe.transform(cities, this.order, this.ascending)
 
@@ -43,9 +42,8 @@ export class AdCityListComponent implements OnInit {
     }
 
   removeCity(city) {
-    console.log('in component')
     this.CityService.removeCity(city._id)
-    .then(() => this.router.navigate(['/']))
+    .then(() => this.router.navigate(['/ads']))
     .catch(console.log)
   }
 

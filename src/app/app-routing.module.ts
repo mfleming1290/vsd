@@ -20,6 +20,10 @@ import { AdStateListComponent } from "./ads/ad-main/ad-state-list/ad-state-list.
 import { AdCategoryListComponent } from "./ads/ad-main/ad-category-list/ad-category-list.component";
 import { AdCityListComponent } from "./ads/ad-main/ad-city-list/ad-city-list.component";
 import { CityCategoriesComponent } from "./states/cities/city/city-categories/city-categories.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
+import { AdBannerNewComponent } from "./ads/ad-main/ad-banner-new/ad-banner-new.component";
+import { AdBannerListComponent } from "./ads/ad-main/ad-banner-list/ad-banner-list.component";
+
 
 const routes: Routes = [
     {
@@ -50,8 +54,18 @@ const routes: Routes = [
                 canActivate: [AuthGuard]
             },
             {
+                path: 'banner-new',
+                component: AdBannerNewComponent,
+                canActivate: [AuthGuard]   
+            },
+            {
                 path: 'ad-list',
                 component: AdListComponent,
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'banner-list',
+                component: AdBannerListComponent,
                 canActivate: [AuthGuard]
             },
             {
@@ -148,6 +162,10 @@ const routes: Routes = [
         path: 'home',
         redirectTo: '',
     },
+    {
+        path: '**',
+        component: NotFoundComponent
+    }
     
 ];
 

@@ -35,7 +35,6 @@ export class AdDetailsComponent implements OnInit {
 
 
   onUpdate(ad: Ad) {
-    console.log(ad)
     if  (ad.imgName != undefined) {
       ad.img = 'assets/img/dbImages/' + ad.imgName
     }

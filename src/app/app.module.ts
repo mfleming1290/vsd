@@ -43,7 +43,10 @@ import { CategoryService } from "./services/category.service";
 import { AccordionModule } from 'ngx-bootstrap';
 import { CityCategoriesComponent } from './states/cities/city/city-categories/city-categories.component';
  import { Ng2MapModule} from 'ng2-map';
-import {NgxPaginationModule} from 'ngx-pagination'
+import {NgxPaginationModule} from 'ngx-pagination';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AdBannerListComponent } from './ads/ad-main/ad-banner-list/ad-banner-list.component';
+import { AdBannerNewComponent } from './ads/ad-main/ad-banner-new/ad-banner-new.component'
 
 
 
@@ -74,7 +77,10 @@ import {NgxPaginationModule} from 'ngx-pagination'
     AdStateListComponent,
     AdCityListComponent,
     AdCategoryListComponent,
-    CityCategoriesComponent
+    CityCategoriesComponent,
+    NotFoundComponent,
+    AdBannerListComponent,
+    AdBannerNewComponent
   ],
   imports: [
     BrowserModule,

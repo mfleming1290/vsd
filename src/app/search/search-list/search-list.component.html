@@ -1,53 +1,53 @@
-<section id="bl" >
-      
-
-
-    <div class="container">
-      <img src="../../../assets/img/searchPick.png" class="img-responsive" alt="">
-      <div class="text-center">
-        <!-- items being paged -->
-        <br/><br/><br/>
-    
-    <!-- Plans -->
-    <section id="plans">
-        <div class="container">
-            <div class="row">
-
-                <!-- item -->
-                <div class="col-md-4 text-center" [routerLink]="['/ad', item._id]" *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
-                    <div class="panel panel-danger panel-pricing">
-                        <div class="panel-heading">
-                            <img src="{{item.img}}" class="img-responsive" height="100%" width="100%" alt="ad image">
-                        </div>
-                        <div class="panel-body text-center">
-                            <p><strong>{{ item.company }}</strong></p>
-                        </div>
-                        <ul class="list-group text-center">
-                            <li class="list-group-item"> {{item.city}}, {{item.state}}</li>
-                            <li class="list-group-item"><i class="fa fa-tags"></i>{{ item.category }}</li>
-                            <li class="list-group-item"><i class="fa fa-phone"></i> {{item.phone}}</li>
-                        </ul>
-                        <div class="panel-footer">
-                            <a class="btn btn-lg btn-block btn-blue" href="#"><i class="fa fa-desktop"></i>{{item.link}}!</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /item -->
-
-               
-
-            </div>
+<section id="bl">
+  <div class="container">
+    <img src="../../../assets/img/searchPick.png" class="img-responsive" alt="">
+    <div class="text-center">
+      <div class="row bannersRow">
+      <div class="col-md-8">
+        <div id='banner' class="top-banner-left brighten pic">
+          <a href="http://germanroofingaz.com/" rel="nofollow"><img src="../../assets/img/bannerImages/germanRoofingBanner.png" alt="banner ad" class='img-
+                 responsive bannerAds borders blogger spice' style="padding:3px ;background-color:#eeecec" /></a><br>
         </div>
-    </section>
-    <!-- /Plans -->
-
-        <div class="col-md-12">
-          <!-- pager -->
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-          
+      </div>
+      <div id='banner' class="col-md-4">
+        <div class="top-banner-right brighten pic">
+          <a href="http://www.hmkey.com/" rel="nofollow"><img src="../../assets/img/bannerImages/homeKeyBanner.png" alt="banner ad" class='img-
+                 responsive bannerAds borders blogger spice' style="padding:3px ;background-color:#eeecec" /></a><br>
         </div>
       </div>
     </div>
-
+      <!-- Plans -->
+      <section id="plans">
+        <div class="container">
+          <div class="row">
+            <!-- item -->
+            <div class="col-md-4 text-center" [routerLink]="['/ad', item._id]" *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+              <div class="panel panel-danger panel-pricing">
+                <div class="panel-heading">
+                  <img src="{{item.img}}" class="img-responsive" height="100%" width="100%" alt="ad image">
+                </div>
+                <div class="panel-body text-center">
+                  <p><strong>{{ item.company }}</strong></p>
+                </div>
+                <ul class="list-group text-center">
+                  <li class="list-group-item"> {{item.city}}, {{item.state}}</li>
+                  <li class="list-group-item"><i class="fa fa-tags"></i>{{ item.category }}</li>
+                  <li class="list-group-item"><i class="fa fa-phone"></i> {{item.phone}}</li>
+                </ul>
+                <div class="panel-footer">
+                  <a class="btn btn-lg btn-block btn-blue" href="#"><i class="fa fa-desktop"></i>{{item.link}}!</a>
+                </div>
+              </div>
+            </div>
+            <!-- /item -->
+          </div>
+        </div>
+      </section>
+      <div class="col-md-12">
+        <!-- pager -->
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
 </section>
+

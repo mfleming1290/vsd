@@ -1,31 +1,23 @@
 <section id="bl">
   <div class="vertical-container">
     <div class="text-center">
-      <h1>Ads</h1>
+      <h1>Banners</h1>
       <table class="table table-striped white">
         <thead>
           <tr>
             <th class="text-center">
-              Company
+              Image name
             </th>
             <th class="text-center">
-              State
-            </th>
-            <th class="text-center">
-              City
-            </th>
-            <th class="text-center">
-              Category
+              Path
             </th>
             <th class="text-center">Actions</th>
         </thead>
         <tbody>
           <tr [routerLink]="['/ads', item._id]" *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
-            <td>{{item.company}}</td>
-            <td>{{item.state}}</td>
-            <td>{{item.city}}</td>
-            <td>{{item.category}}</td>
-            <td (click)='tdClick($event)'> <button class='btn btn-danger btn-sm' (click)='removeAd(item)'>Delete Ad</button></td>
+            <td>{{item.originalname}}</td>
+            <td>{{item.path}}</td>
+            <td (click)='tdClick($event)'> <button class='btn btn-danger btn-sm' (click)='removeBanner(item)'>Delete Banner</button></td>
           </tr>
         </tbody>
       </table>

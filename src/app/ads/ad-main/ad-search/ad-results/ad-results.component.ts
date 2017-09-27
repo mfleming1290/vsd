@@ -35,10 +35,7 @@ export class AdResultsComponent implements OnInit {
        this.adService.getSearchAds(param.get('id'), param.get('loc'))
       )
       .subscribe((ads) => {
-        console.log('ads found',ads)
         this.collection = ads;
-        
-        // this.setPage(1);
       })
       
   }
@@ -53,7 +50,6 @@ export class AdResultsComponent implements OnInit {
 
 
   removeAd(ad) {
-    console.log('in component')
     this.adService.removeAd(ad._id)
     .then(() => this.router.navigate(['/']))
     .catch(console.log)

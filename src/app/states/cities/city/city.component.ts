@@ -88,7 +88,6 @@ export class CityComponent implements OnInit {
       )
       .subscribe(categories => {
         this.categories = categories
-        // this.categories.push(categories)
 
       });
   }

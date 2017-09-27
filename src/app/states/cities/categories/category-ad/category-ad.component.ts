@@ -49,17 +49,6 @@ public openModal(template: TemplateRef<any>) {
     
   }
 
-  // if(navigator.geolocation){
-  //     navigator.geolocation.getCurrentPosition(position => {
-  //       this.location = position.coords;
-  //       console.log(position.coords);
-  //       console.log(this.location.latitude); 
-  //         this.latlon = this.location.latitude + "," + this.location.longitude
-  //         this.position = [this.location.latitude, this.location.longitude]
-
-  //     });
-  //  }
-
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

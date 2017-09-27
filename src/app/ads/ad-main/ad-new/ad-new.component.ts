@@ -48,14 +48,12 @@ export class AdNewComponent implements OnInit {
   getStates() {
     this.stateService.getStates()
     .then(states => {
-      console.log(states)
       this.states = states
     })
     .catch(() => {})
   }
 
   onSubmit(ad){
-    console.log('submitting', ad);
     if  (ad.imgName != undefined) {
       ad.img = 'assets/img/dbImages/' + ad.imgName
     }
@@ -63,11 +61,9 @@ export class AdNewComponent implements OnInit {
           ad.video = 'assets/img/dbImages/' + ad.videoName
 
     }
-    console.log('eddited ad', ad)
     this.adService.createAd(ad)
-    .then(() => this.router.navigate(['ads']))
+    .then(() => this.router.navigate(['/ads']))
     .catch(err => {
-      console.log('catching errors', err);
       this.handleErrors(err.json())
     })
   }
@@ -81,11 +77,9 @@ export class AdNewComponent implements OnInit {
   }
 
   onSubmitState(state){
-    console.log(state)
     this.adService.createState(state)
     .then((state) => console.log(state))
     .catch(err => {
-      console.log('catching errors', err);
       this.handleErrors(err.json())
     })
   }

@@ -29,7 +29,7 @@
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "express": "^4.15.4",
-    "express-session": "^1.15.5",
+    "express-session": "^1.15.6",
     "faker": "^4.1.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.11.10",

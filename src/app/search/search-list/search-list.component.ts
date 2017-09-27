@@ -29,7 +29,6 @@ export class SearchListComponent implements OnInit {
        
       )
       .subscribe((ad) => {
-        console.log('ads found',ad)
         this.collection = ad;
         
       })

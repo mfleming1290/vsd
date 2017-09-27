@@ -24,18 +24,20 @@ export class AdCategoryListComponent implements OnInit {
 
 
   getCategories() {
+
     this.categoryService.getCategories()
     .then(categories => {
-      
-    return this.orderByPipe.transform(categories, this.order, this.ascending)
+      return this.orderByPipe.transform(categories, this.order, this.ascending)
             
     })
     .then((orderedCategories) => {
       this.collection = orderedCategories;
                 
     })
-    .catch(() => {})
+    .catch((err) => {console.log(err)})
   }
+
+  
 
    
 
@@ -44,9 +46,8 @@ export class AdCategoryListComponent implements OnInit {
     }
 
   removeCategory(state) {
-    console.log('in component')
     this.categoryService.removeCategory(state._id)
-    .then(() => this.router.navigate(['/']))
+    .then(() => this.router.navigate(['/ads']))
     .catch(console.log)
   }
 
